@@ -11,9 +11,8 @@ munin and remote syslog. This should be the default image for all core.io zones.
 
 ### munin
 
-- `munin_master`: List of ip addresses of the munin master servers
+- `munin_master`: List of ip addresses or hostnames of the munin master servers
 
 ### remote syslog
 
 - `syslog_host`: IP address or hostname of the remote log server
-- `syslog_ssl`: CA certificate of the remote log server

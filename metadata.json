@@ -5,7 +5,7 @@
 			"required": false,
 			"type": "text",
 			"name": "munin_master",
-			"description": "List of ip addresses of the munin master servers."
+			"description": "List of ip addresses or hostnames of the munin master servers."
 		},
 		{
 			"value": "logger:hostname",
@@ -13,13 +13,6 @@
 			"type": "text",
 			"name": "syslog_host",
 			"description": "IP address or hostname of the remote log server."
-		},
-		{
-			"value": "",
-			"required": false,
-			"type": "text",
-			"name": "syslog_ssl",
-			"description": "CA certificate of the remote log server."
-		},
+		}
 	]
 }
