@@ -5,7 +5,7 @@
 			"required": false,
 			"type": "text",
 			"name": "munin_master",
-			"description": ""
+			"description": "List of ip addresses of the munin master servers."
 		}
 	]
 }
