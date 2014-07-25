@@ -2,13 +2,23 @@
 #
 # Put customizations to your image in this file.
 
+# Custom versions and variables
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+MUNIN_PLUGIN_VERSION='0.2'
 
 # Exit if any commands fail
 set -o errexit
 
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
+
+# Create munin template file that will be used during mdata setup
+echo "* Create munin template file that will be used during mdata setup"
+cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
+
+# Download and install community munin plugins
+echo "* Download and install community munin plugins (overwrite all other plugins)"
+curl -L https://github.com/drscream/smartos-munin-plugins/archive/${MUNIN_PLUGIN_VERSION}.tar.gz | tar xz -C /opt/local/lib/munin/plugins
 
 # Clean up
 echo "* Cleaning up."
