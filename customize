@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+#
+# Put customizations to your image in this file.
+
+PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+
+# Exit if any commands fail
+set -o errexit
+
+# Configuring image specific packages
+echo "* Configuring image specific packages.";
+
+# Clean up
+echo "* Cleaning up."
+rm -rf /root/*
+
+# Prepare image for provisioning
+sm-prepare-image -y
