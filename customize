@@ -12,6 +12,7 @@ set -o errexit
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
 
+## MUNIN
 # Create munin template file that will be used during mdata setup
 echo "* Create munin template file that will be used during mdata setup"
 cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
@@ -19,6 +20,23 @@ cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
 # Download and install community munin plugins
 echo "* Download and install community munin plugins (overwrite all other plugins)"
 curl -L https://github.com/drscream/smartos-munin-plugins/archive/${MUNIN_PLUGIN_VERSION}.tar.gz | tar xz -C /opt/local/lib/munin/plugins
+
+## RSYSLOG
+# Install or upgrade to rsyslog pkg with tls support
+echo "* Install or upgrade to rsyslog pkg with tls support"
+pkg_add http://pkgsrc.smartos.skylime.net/skylime-extra/2014Q2/x86_64/rsyslog-7.4.7.tgz
+
+# Create rsyslog.d folder for extra configuration files
+echo "* Create rsyslog.d folder for extra configuration files"
+mkdir -p /opt/local/etc/rsyslog.d
+echo '
+# Include additional config files from extra folder
+$IncludeConfig /opt/local/etc/rsyslog.d/*.conf' >> /opt/local/etc/rsyslog.conf
+
+## SPIPED
+# Install spiped from our repository
+echo "* Install spiped from our repository"
+pkg_add http://pkgsrc.smartos.skylime.net/skylime-extra/2014Q2/x86_64/spiped-1.3.1nb3.tgz
 
 # Clean up
 echo "* Cleaning up."
