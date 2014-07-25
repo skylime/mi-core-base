@@ -1,0 +1,11 @@
+{
+	"metadata_info": [
+		{
+			"value": "munin:hostname",
+			"required": false,
+			"type": "text",
+			"name": "munin_master",
+			"description": ""
+		}
+	]
+}
