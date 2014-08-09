@@ -19,7 +19,7 @@ cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
 
 # Download and install community munin plugins
 echo "* Download and install community munin plugins (overwrite all other plugins)"
-curl -L https://github.com/drscream/smartos-munin-plugins/archive/${MUNIN_PLUGIN_VERSION}.tar.gz | tar xz -C /opt/local/lib/munin/plugins
+curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGIN_VERSION}.tar.gz | tar xz -C /opt/local/lib/munin/plugins
 
 ## RSYSLOG
 # Install or upgrade to rsyslog pkg with tls support
