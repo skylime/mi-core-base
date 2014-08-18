@@ -16,3 +16,9 @@ munin and remote syslog. This should be the default image for all core.io zones.
 ### remote syslog
 
 - `syslog_host`: IP address or hostname of the remote log server
+
+### postfix
+
+- `smart_host`: hostname of remote smtp server
+- `smtp_user`: smtp username for authentication
+- `smtp_pass`: smtp password for authentication
