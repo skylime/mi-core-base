@@ -40,6 +40,12 @@ echo '
 # Include additional config files from extra folder
 $IncludeConfig /opt/local/etc/rsyslog.d/*.conf' >> /opt/local/etc/rsyslog.conf
 
+## POSTFIX
+# Save and copy new postfix default configuration
+echo "* Save and copy new postfix default configuration"
+cp --backup /tmp/postfix-main.cf /opt/local/etc/postfix/main.cf
+rm /tmp/postfix-main.cf
+
 ## SPIPED
 # Install spiped from our repository
 echo "* Install spiped from our repository"

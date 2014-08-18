@@ -1,0 +1,48 @@
+# LOCAL PATHNAME INFORMATION
+queue_directory = /var/spool/postfix
+command_directory = /opt/local/sbin
+daemon_directory = /opt/local/libexec/postfix
+data_directory = /var/db/postfix
+
+# QUEUE AND PROCESS OWNERSHIP
+mail_owner = postfix
+setgid_group = maildrop
+
+# INTERNET HOST AND DOMAIN NAMES
+#myhostname = host.domain.tld
+#mydomain = domain.tld
+
+# SENDING MAIL
+#myorigin = $myhostname
+#myorigin = $mydomain
+
+# RECEIVING MAIL
+inet_protocols = all
+inet_interfaces = loopback-only
+mynetworks = 127.0.0.0/8 [::1]/128
+mynetworks_style = host
+
+# REJECTING MAIL FOR UNKNOWN LOCAL USERS
+unknown_local_recipient_reject_code = 550
+
+# INTERNET OR INTRANET
+relayhost = [RELAYHOST]:25
+smtp_use_tls = yes
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/opt/local/etc/postfix/relay_passwords
+smtp_sasl_type = cyrus
+smtp_sasl_security_options = noanonymous
+smtp_always_send_ehlo = yes
+
+# ALIAS DATABASE
+alias_maps = hash:/opt/local/etc/postfix/aliases
+alias_database = hash:/opt/local/etc/postfix/aliases
+
+# INSTALL-TIME CONFIGURATION INFORMATION
+sendmail_path = /opt/local/sbin/sendmail
+newaliases_path = /opt/local/bin/newaliases
+mailq_path = /opt/local/bin/mailq
+html_directory = no
+manpage_directory = /opt/local/man
+sample_directory = /opt/local/share/examples/postfix
+readme_directory = /opt/local/share/doc/postfix
