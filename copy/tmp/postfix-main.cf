@@ -28,7 +28,7 @@ unknown_local_recipient_reject_code = 550
 # INTERNET OR INTRANET
 relayhost = [SMART_HOST]:25
 smtp_use_tls = yes
-smtp_sasl_auth_enable = yes
+smtp_sasl_auth_enable = no
 smtp_sasl_password_maps = hash:/opt/local/etc/postfix/relay_passwords
 smtp_sasl_type = cyrus
 smtp_sasl_security_options = noanonymous
