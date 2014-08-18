@@ -26,7 +26,7 @@ mynetworks_style = host
 unknown_local_recipient_reject_code = 550
 
 # INTERNET OR INTRANET
-relayhost = [RELAYHOST]:25
+relayhost = [SMART_HOST]:25
 smtp_use_tls = yes
 smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = hash:/opt/local/etc/postfix/relay_passwords

@@ -19,6 +19,7 @@ munin and remote syslog. This should be the default image for all core.io zones.
 
 ### postfix
 
-- `smart_host`: hostname of remote smtp server
-- `smtp_user`: smtp username for authentication
-- `smtp_pass`: smtp password for authentication
+- `mail_smarthost`: hostname of remote smtp server
+- `mail_auth_user`: smtp username for authentication
+- `mail_auth_pass`: smtp password for authentication
+- `mail_adminaddr`: admin email address for everything from root@localhost
