@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ $# -ne 5 ]; then
+        echo "Usage:"
+        echo -e "\t${0} <instance name> {encrypt | decrypt} <source> <target> <key>"
+        echo
+        echo key is base64 encoded
+        exit 0
+fi
+
+INSTANCE=$1
+MODE=$2
+SOURCE=$3
+TARGET=$4
+KEY=$5
+
+KEYDIR=/opt/local/etc/spiped/
+KEYFILE=${KEYDIR}${INSTANCE}.key
+mkdir -p ${KEYDIR}
+
+echo $KEY | /opt/local/bin/base64 -d > $KEYFILE
+
+svccfg -s spiped add $INSTANCE
+svccfg -s spiped:$INSTANCE addpg spiped application
+svccfg -s spiped:$INSTANCE setprop spiped/mode   = astring: $MODE
+svccfg -s spiped:$INSTANCE setprop spiped/source = astring: $SOURCE
+svccfg -s spiped:$INSTANCE setprop spiped/target = astring: $TARGET
+svccfg -s spiped:$INSTANCE setprop spiped/key    = astring: $KEYFILE
+svcadm enable  spiped:$INSTANCE
+svcadm restart spiped:$INSTANCE
