@@ -9,6 +9,10 @@ munin and remote syslog. This should be the default image for all core.io zones.
 
 ## mdata variables
 
+### root authorized_keys
+
+- `root_authorized_keys`: SSH Public keys for root user
+
 ### munin
 
 - `munin_master`: List of ip addresses or hostnames of the munin master servers
