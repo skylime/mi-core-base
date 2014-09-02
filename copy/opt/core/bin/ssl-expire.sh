@@ -1,6 +1,6 @@
 #!/bin/bash
 
-crt_locations=${crt_locations-'/etc /opt/local/etc'}
+crt_locations=${crt_locations-'/opt/local/etc'}
 today_unixtime=$(date +%s)
 trigger_unixtime=$(date +%s -d "+31 days")
 
