@@ -22,6 +22,7 @@ MUNIN_PLUGINS=(
 	'io_bytes_zfs'
 	'io_ops_zfs'
 	'if_net0'
+	'pkg_audit'
 )
 
 # Exit if any commands fail
