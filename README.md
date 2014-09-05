@@ -17,7 +17,7 @@ Configure ssh public key for root user via `mdata` variable.
 
 ### munin
 
-List of ip addresses of the munin master server that is allowed to connect. The ip addresses should be seperated by newline.
+List of ip addresses of the munin master server that is allowed to connect. The ip addresses should be seperated by whitespace or newline.
 
 - `munin_master_allow`: ip addresses (alternative hostname) of the munin master node
 
