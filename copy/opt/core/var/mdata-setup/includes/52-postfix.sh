@@ -28,5 +28,6 @@ if mdata-get mail_smarthost 1>/dev/null 2>&1; then
 			echo "root: $(mdata-get mail_adminaddr)"
 		) > ${POSTFIX_CONF}aliases~
 		mv ${POSTFIX_CONF}aliases~ ${POSTFIX_CONF}aliases
+		postalias hash:${POSTFIX_CONF}aliases
 	fi
 fi
