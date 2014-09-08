@@ -26,5 +26,6 @@ svccfg -s spiped:$INSTANCE setprop spiped/mode   = astring: $MODE
 svccfg -s spiped:$INSTANCE setprop spiped/source = astring: $SOURCE
 svccfg -s spiped:$INSTANCE setprop spiped/target = astring: $TARGET
 svccfg -s spiped:$INSTANCE setprop spiped/key    = astring: $KEYFILE
+svcadm refresh spiped:$INSTANCE
 svcadm enable  spiped:$INSTANCE
 svcadm restart spiped:$INSTANCE
