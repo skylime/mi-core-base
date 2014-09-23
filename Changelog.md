@@ -1,8 +1,10 @@
 ## Changelog for mi-core-base
 
-### upcoming (2014/09/23 14:19 +00:00)
+### 14.2.1 (2014/09/23 14:19 +00:00)
 
 - [c2542e7](https://github.com/skylime/mi-core-base/commit/c2542e793ec21ecf837d55308a43026157f2c95a) missing rsyslog gnutls (@drscream)
+- [41ba878](https://github.com/skylime/mi-core-base/commit/41ba878a430f8f08d72be52c6443fb2e28dd321c) update license file (@drscream)
+- [f240d97](https://github.com/skylime/mi-core-base/commit/f240d971f482eee4ee8a6fcdb4a447dee7daf384) version update (@drscream)
 
 ### 14.2.0 (2014/09/21 17:38 +00:00)
 
