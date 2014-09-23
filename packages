@@ -5,5 +5,7 @@ munin-node
 p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
+# rsyslog
+rsyslog-gnutls
 # postfix
 cy2-plain
