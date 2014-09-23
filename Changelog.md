@@ -1,5 +1,10 @@
 ## Changelog for mi-core-base
 
+### 14.2.2 (2014/09/23 15:01 +00:00)
+
+- [12f57c9](https://github.com/skylime/mi-core-base/commit/12f57c99f7f823339e6481a382c177aa8e9ee8ac) use new version of rsyslog (@drscream)
+- [a2656c3](https://github.com/skylime/mi-core-base/commit/a2656c388bfae19686bb999eddc6bef05328be8a) install rsyslog via customize script (@drscream)
+
 ### 14.2.1 (2014/09/23 14:19 +00:00)
 
 - [c2542e7](https://github.com/skylime/mi-core-base/commit/c2542e793ec21ecf837d55308a43026157f2c95a) missing rsyslog gnutls (@drscream)
