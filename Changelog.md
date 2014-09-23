@@ -1,5 +1,9 @@
 ## Changelog for mi-core-base
 
+### upcoming (2014/09/23 14:19 +00:00)
+
+- [c2542e7](https://github.com/skylime/mi-core-base/commit/c2542e793ec21ecf837d55308a43026157f2c95a) missing rsyslog gnutls (@drscream)
+
 ### 14.2.0 (2014/09/21 17:38 +00:00)
 
 - [a06f81b](https://github.com/skylime/mi-core-base/commit/a06f81b71b28f681c71320539409a22d0845e021) first import basics for base mibe (@drscream)
