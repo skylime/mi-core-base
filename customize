@@ -62,6 +62,10 @@ for plugin in "${MUNIN_PLUGINS[@]}"; do
 	fi
 done
 
+## RSYSLOG
+pkgin install rsyslog
+pkgin install rsyslog-gnutls
+
 # Create rsyslog.d folder for extra configuration files
 echo "* Create rsyslog.d folder for extra configuration files"
 mkdir -p /opt/local/etc/rsyslog.d
