@@ -4,6 +4,7 @@
 
 - [12f57c9](https://github.com/skylime/mi-core-base/commit/12f57c99f7f823339e6481a382c177aa8e9ee8ac) use new version of rsyslog (@drscream)
 - [a2656c3](https://github.com/skylime/mi-core-base/commit/a2656c388bfae19686bb999eddc6bef05328be8a) install rsyslog via customize script (@drscream)
+- [f2ae0fc](https://github.com/skylime/mi-core-base/commit/f2ae0fcd725530ff92f76b1fe8c78d1fee40a16c) update version (@drscream)
 
 ### 14.2.1 (2014/09/23 14:19 +00:00)
 
