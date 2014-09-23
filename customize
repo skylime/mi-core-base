@@ -62,11 +62,6 @@ for plugin in "${MUNIN_PLUGINS[@]}"; do
 	fi
 done
 
-## RSYSLOG
-# Install or upgrade to rsyslog pkg with tls support
-echo "* Install or upgrade to rsyslog pkg with tls support"
-pkg_add http://pkgsrc.smartos.skylime.net/skylime-extra/2014Q2/x86_64/rsyslog-7.4.7.tgz
-
 # Create rsyslog.d folder for extra configuration files
 echo "* Create rsyslog.d folder for extra configuration files"
 mkdir -p /opt/local/etc/rsyslog.d
