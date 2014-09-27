@@ -1,19 +1,22 @@
-## Changelog for mi-core-base
+## Change Log
 
-### 14.2.2 (2014/09/23 15:01 +00:00)
+### 14.2.3 (2014/09/27 08:37 +00:00)
+- [693ed22](https://github.com/skylime/mi-core-base/commit/693ed22f1518b70ee5362a0a533b5119a20b82ed) yes we know what we are doing, so please install rsyslog (@drscream)
 
+### 14.2.2 (2014/09/23 15:04 +00:00)
 - [12f57c9](https://github.com/skylime/mi-core-base/commit/12f57c99f7f823339e6481a382c177aa8e9ee8ac) use new version of rsyslog (@drscream)
 - [a2656c3](https://github.com/skylime/mi-core-base/commit/a2656c388bfae19686bb999eddc6bef05328be8a) install rsyslog via customize script (@drscream)
 - [f2ae0fc](https://github.com/skylime/mi-core-base/commit/f2ae0fcd725530ff92f76b1fe8c78d1fee40a16c) update version (@drscream)
+- [141d8c4](https://github.com/skylime/mi-core-base/commit/141d8c4c1233eb2ee83439736892505d0462bdcf) update changelog (@drscream)
+- [7ee50d5](https://github.com/skylime/mi-core-base/commit/7ee50d5d090e4388728795d253d292b454e565ed) update changelog (@drscream)
 
-### 14.2.1 (2014/09/23 14:19 +00:00)
-
+### 14.2.1 (2014/09/23 14:24 +00:00)
 - [c2542e7](https://github.com/skylime/mi-core-base/commit/c2542e793ec21ecf837d55308a43026157f2c95a) missing rsyslog gnutls (@drscream)
 - [41ba878](https://github.com/skylime/mi-core-base/commit/41ba878a430f8f08d72be52c6443fb2e28dd321c) update license file (@drscream)
 - [f240d97](https://github.com/skylime/mi-core-base/commit/f240d971f482eee4ee8a6fcdb4a447dee7daf384) version update (@drscream)
+- [ef246e0](https://github.com/skylime/mi-core-base/commit/ef246e0c71443f1e6f9832cec4af139c892df62c) version update (@drscream)
 
-### 14.2.0 (2014/09/21 17:38 +00:00)
-
+### 14.2.0 (2014/09/21 17:39 +00:00)
 - [a06f81b](https://github.com/skylime/mi-core-base/commit/a06f81b71b28f681c71320539409a22d0845e021) first import basics for base mibe (@drscream)
 - [975769a](https://github.com/skylime/mi-core-base/commit/975769a098549e7c918e0c03aa487db82a9ee2cc) add manifest for base image (@drscream)
 - [383629d](https://github.com/skylime/mi-core-base/commit/383629d683f483563cf34be4211c03c86cc6a2a9) Add mdata setup scripts and zoneinit (@drscream)
@@ -52,3 +55,4 @@
 - [587f79b](https://github.com/skylime/mi-core-base/commit/587f79ba3194a06d4ad7480607a0ec5ad00b30d6) update readme file (@drscream)
 - [98514bf](https://github.com/skylime/mi-core-base/commit/98514bf50b2594ee6f319b359feab57b5f4b76f6) fix readme (@drscream)
 - [9d45084](https://github.com/skylime/mi-core-base/commit/9d45084cfb7deb5aa02593a33f254265f94553d1) svcadm refresh is required to have new config enabled (@drscream)
+- [8d6ac4a](https://github.com/skylime/mi-core-base/commit/8d6ac4a8b27443d60333eb63a0935647ffcff4ff) add changelog (@drscream)
