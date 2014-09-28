@@ -1,7 +1,11 @@
 ## Change Log
 
+### 14.2.4 (2014/09/28 18:15 +00:00)
+- [8f9049b](https://github.com/skylime/mi-core-base/commit/8f9049b564dc1b72e94fa49fdf3e79d7212edaf8) new: dev: add new munin plugin version and version update for base image (@drscream)
+
 ### 14.2.3 (2014/09/27 08:37 +00:00)
 - [693ed22](https://github.com/skylime/mi-core-base/commit/693ed22f1518b70ee5362a0a533b5119a20b82ed) yes we know what we are doing, so please install rsyslog (@drscream)
+- [c70e8cb](https://github.com/skylime/mi-core-base/commit/c70e8cb94c387f4fa6cd34c75a35ccfe1dcbfd21) update changelog (@drscream)
 
 ### 14.2.2 (2014/09/23 15:04 +00:00)
 - [12f57c9](https://github.com/skylime/mi-core-base/commit/12f57c99f7f823339e6481a382c177aa8e9ee8ac) use new version of rsyslog (@drscream)
