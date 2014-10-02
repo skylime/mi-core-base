@@ -1,62 +1,96 @@
-## Change Log
+# Changelog
 
-### 14.2.4 (2014/09/28 18:15 +00:00)
-- [8f9049b](https://github.com/skylime/mi-core-base/commit/8f9049b564dc1b72e94fa49fdf3e79d7212edaf8) new: dev: add new munin plugin version and version update for base image (@drscream)
+## 14.2.5
 
-### 14.2.3 (2014/09/27 08:37 +00:00)
-- [693ed22](https://github.com/skylime/mi-core-base/commit/693ed22f1518b70ee5362a0a533b5119a20b82ed) yes we know what we are doing, so please install rsyslog (@drscream)
-- [c70e8cb](https://github.com/skylime/mi-core-base/commit/c70e8cb94c387f4fa6cd34c75a35ccfe1dcbfd21) update changelog (@drscream)
+### New
 
-### 14.2.2 (2014/09/23 15:04 +00:00)
-- [12f57c9](https://github.com/skylime/mi-core-base/commit/12f57c99f7f823339e6481a382c177aa8e9ee8ac) use new version of rsyslog (@drscream)
-- [a2656c3](https://github.com/skylime/mi-core-base/commit/a2656c388bfae19686bb999eddc6bef05328be8a) install rsyslog via customize script (@drscream)
-- [f2ae0fc](https://github.com/skylime/mi-core-base/commit/f2ae0fcd725530ff92f76b1fe8c78d1fee40a16c) update version (@drscream)
-- [141d8c4](https://github.com/skylime/mi-core-base/commit/141d8c4c1233eb2ee83439736892505d0462bdcf) update changelog (@drscream)
-- [7ee50d5](https://github.com/skylime/mi-core-base/commit/7ee50d5d090e4388728795d253d292b454e565ed) update changelog (@drscream)
+* version update. [Thomas Merkel]
+* add leading number to the rsyslog remote log config file. [Thomas Merkel]
+* add additional default configuration for rsyslog. [Thomas Merkel]
 
-### 14.2.1 (2014/09/23 14:24 +00:00)
-- [c2542e7](https://github.com/skylime/mi-core-base/commit/c2542e793ec21ecf837d55308a43026157f2c95a) missing rsyslog gnutls (@drscream)
-- [41ba878](https://github.com/skylime/mi-core-base/commit/41ba878a430f8f08d72be52c6443fb2e28dd321c) update license file (@drscream)
-- [f240d97](https://github.com/skylime/mi-core-base/commit/f240d971f482eee4ee8a6fcdb4a447dee7daf384) version update (@drscream)
-- [ef246e0](https://github.com/skylime/mi-core-base/commit/ef246e0c71443f1e6f9832cec4af139c892df62c) version update (@drscream)
+## 14.2.4 (2014-09-28)
 
-### 14.2.0 (2014/09/21 17:39 +00:00)
-- [a06f81b](https://github.com/skylime/mi-core-base/commit/a06f81b71b28f681c71320539409a22d0845e021) first import basics for base mibe (@drscream)
-- [975769a](https://github.com/skylime/mi-core-base/commit/975769a098549e7c918e0c03aa487db82a9ee2cc) add manifest for base image (@drscream)
-- [383629d](https://github.com/skylime/mi-core-base/commit/383629d683f483563cf34be4211c03c86cc6a2a9) Add mdata setup scripts and zoneinit (@drscream)
-- [9e69a1f](https://github.com/skylime/mi-core-base/commit/9e69a1f8c8d50a3676ccae87869ef0f08857d213) add default pkgs (@drscream)
-- [0f5a217](https://github.com/skylime/mi-core-base/commit/0f5a217efbc965e86c15aa83ecc92a9dedeb2db9) add first idea of metadata extra information (@drscream)
-- [7a081fa](https://github.com/skylime/mi-core-base/commit/7a081face1e6838e80a4d37cd169103901c8b249) Add munin-node as default (@drscream)
-- [a784fd2](https://github.com/skylime/mi-core-base/commit/a784fd206623f36f8002f81334667ed9059bdf02) add description (@drscream)
-- [d34ae28](https://github.com/skylime/mi-core-base/commit/d34ae282b288d531d24e71fd5496a5b183295e8f) Add remote logging server variables (@drscream)
-- [cdd01bf](https://github.com/skylime/mi-core-base/commit/cdd01bfc667ec38b43c32168ee708ed3c05b0e5e) add mdata information to readme (@drscream)
-- [40cd48d](https://github.com/skylime/mi-core-base/commit/40cd48d579efc2284d373c5a88581fea3990da6f) support munin hostnames (@drscream)
-- [2f8a00e](https://github.com/skylime/mi-core-base/commit/2f8a00e164944e025e49f642f1e5b2dcd43b6fdd) support more than one dot (@drscream)
-- [93986a4](https://github.com/skylime/mi-core-base/commit/93986a45f4fc5193cfb78379c3bbde70503fa2c8) fix version information (@drscream)
-- [32c8139](https://github.com/skylime/mi-core-base/commit/32c8139e5288043873c67cca34126cc335d6d40a) use skylime pkgsrc mirror (@drscream)
-- [9d97d83](https://github.com/skylime/mi-core-base/commit/9d97d83daa2b41d5373b4b86607f22c8239d5d61) Add postfix minimal configuration (@drscream)
-- [4559f25](https://github.com/skylime/mi-core-base/commit/4559f255360225b49cd677251aae06268866a5be) modify readme for mdata value for postfix (@drscream)
-- [905676e](https://github.com/skylime/mi-core-base/commit/905676e1789b456a471e7a998688d36c6d33e87f) configure postfix with smarthost, user authentication and root email (@drscream)
-- [517ca55](https://github.com/skylime/mi-core-base/commit/517ca55075ad320988b0399fd387e29cdfa536f7) enable postfix (@drscream)
-- [dd4e11e](https://github.com/skylime/mi-core-base/commit/dd4e11eee51f0f1b5998b218d2064cffaded8ea9) allow also mail send without authentication (@drscream)
-- [16862ce](https://github.com/skylime/mi-core-base/commit/16862ce42c1c387618ced3c65396be20339d16f3) add spiped-configure script (@drscream)
-- [0d5ffea](https://github.com/skylime/mi-core-base/commit/0d5ffea6c65e176581b75998ef62d7e3da21c71b) Add mdata support for ssh root_authorized_keys. (@drscream)
-- [80018fd](https://github.com/skylime/mi-core-base/commit/80018fdf371b2e78ce3ef8c849c80b944046f847) be sure you create an ssh dir (@drscream)
-- [3a7c6f7](https://github.com/skylime/mi-core-base/commit/3a7c6f700eadabade580d6654b30ac19c56e1a63) configre ssh host keys via mdata for reprovisioning (@drscream)
-- [7818f2e](https://github.com/skylime/mi-core-base/commit/7818f2e3f4a2e90140677e83b4432f8ced85a054) add script that check ssl expire (@drscream)
-- [5513bea](https://github.com/skylime/mi-core-base/commit/5513bea1325e643f6875b4b54e5f3fbbb42974b6) create cronjob for ssl-expire check (@drscream)
-- [1840b98](https://github.com/skylime/mi-core-base/commit/1840b98d5b4b4d261f1627046a51447cf1ea4d60) move munin plugin configuration to customize (@drscream)
-- [9c00a18](https://github.com/skylime/mi-core-base/commit/9c00a18bd70c6b8066b9608602f4dc4f2014eeb3) ups (@drscream)
-- [1a4d828](https://github.com/skylime/mi-core-base/commit/1a4d82812485cf1da08ca5ff1da3f925da83061a) be sure we skip the directory on extract (@drscream)
-- [35b94bb](https://github.com/skylime/mi-core-base/commit/35b94bb0077a92f932b05897bf9b8e8dc4890d7e) don't graph ramdisk iops (@wiedi)
-- [ea67065](https://github.com/skylime/mi-core-base/commit/ea670656ff0e81a038c8a23fd1082788e62705d3) we will not check for ssl certificates in /etc anymore (@drscream)
-- [bd90f50](https://github.com/skylime/mi-core-base/commit/bd90f50e23fbaddc029b69baa3e665d5a48319a3) update to new smartos munin configs (@drscream)
-- [7d7baf3](https://github.com/skylime/mi-core-base/commit/7d7baf333e6a1e16d526efa3821395b8954a60d1) add munin plugin pkg_audit (@drscream)
-- [333dcc1](https://github.com/skylime/mi-core-base/commit/333dcc165960eb3f359782519736db6f6f21b398) fix subshell file cat (@drscream)
-- [e2c266b](https://github.com/skylime/mi-core-base/commit/e2c266b631c4979e7f056565239359087e707760) run postalias (@drscream)
-- [1175e6b](https://github.com/skylime/mi-core-base/commit/1175e6b48b06bbdb10daa3c6f293ef74d6f3c717) Disable StatelessAddrConf for all interfaces. (@drscream)
-- [82dc926](https://github.com/skylime/mi-core-base/commit/82dc926f68a11ca6d549090879c5d167f78e8606) Expired mozilla root ca's aren't my business so don't warn me for that (@drscream)
-- [587f79b](https://github.com/skylime/mi-core-base/commit/587f79ba3194a06d4ad7480607a0ec5ad00b30d6) update readme file (@drscream)
-- [98514bf](https://github.com/skylime/mi-core-base/commit/98514bf50b2594ee6f319b359feab57b5f4b76f6) fix readme (@drscream)
-- [9d45084](https://github.com/skylime/mi-core-base/commit/9d45084cfb7deb5aa02593a33f254265f94553d1) svcadm refresh is required to have new config enabled (@drscream)
-- [8d6ac4a](https://github.com/skylime/mi-core-base/commit/8d6ac4a8b27443d60333eb63a0935647ffcff4ff) add changelog (@drscream)
+### New
+
+* add new munin plugin version and version update for base image. [Thomas Merkel]
+
+### Changes
+
+* update changelog file. [Thomas Merkel]
+
+## 14.2.3 (2014-09-27)
+
+### Other
+
+* update changelog. [Thomas Merkel]
+* yes we know what we are doing, so please install rsyslog. [Thomas Merkel]
+
+## 14.2.2 (2014-09-23)
+
+### Other
+
+* update changelog. [Thomas Merkel]
+* update changelog. [Thomas Merkel]
+* update version. [Thomas Merkel]
+* install rsyslog via customize script. [Thomas Merkel]
+* use new version of rsyslog. [Thomas Merkel]
+
+## 14.2.1 (2014-09-23)
+
+### Other
+
+* version update. [Thomas Merkel]
+* version update. [Thomas Merkel]
+* update license file. [Thomas Merkel]
+* missing rsyslog gnutls. [Thomas Merkel]
+
+## 14.2.0 (2014-09-21)
+
+### Other
+
+* add changelog. [Thomas Merkel]
+* svcadm refresh is required to have new config enabled. [Thomas Merkel]
+* fix readme. [Thomas Merkel]
+* update readme file. [Thomas Merkel]
+* Expired mozilla root ca's aren't my business so don't warn me for that. [Thomas Merkel]
+* Disable StatelessAddrConf for all interfaces. [Thomas Merkel]
+
+    We configure ipv6 manually and ndpd spams to the log file every minute
+    with &quot;in.ndpd[2477]: [ID 102006 daemon.error] prefix_update_k(net1,
+    net1:2, xxxx:xx:xxx:xxx::/64) from  to ONLINK AUTO  name is already
+    allocated&quot;
+
+* run postalias. [Thomas Merkel]
+* fix subshell file cat. [Thomas Merkel]
+* add munin plugin pkg_audit. [Thomas Merkel]
+* update to new smartos munin configs. [Thomas Merkel]
+* we will not check for ssl certificates in /etc anymore. [Thomas Merkel]
+* don't graph ramdisk iops. [Sebastian Wiedenroth]
+* be sure we skip the directory on extract. [Thomas Merkel]
+* ups. [Thomas Merkel]
+* move munin plugin configuration to customize. [Thomas Merkel]
+* create cronjob for ssl-expire check. [Thomas Merkel]
+* add script that check ssl expire. [Thomas Merkel]
+* configre ssh host keys via mdata for reprovisioning. [Thomas Merkel]
+* be sure you create an ssh dir. [Thomas Merkel]
+* Add mdata support for ssh root_authorized_keys. [Thomas Merkel]
+* add spiped-configure script. [Thomas Merkel]
+* allow also mail send without authentication. [Thomas Merkel]
+* enable postfix. [Thomas Merkel]
+* configure postfix with smarthost, user authentication and root email. [Thomas Merkel]
+* modify readme for mdata value for postfix. [Thomas Merkel]
+* Add postfix minimal configuration. [Thomas Merkel]
+* use skylime pkgsrc mirror. [Thomas Merkel]
+* fix version information. [Thomas Merkel]
+* support more than one dot. [Thomas Merkel]
+* support munin hostnames. [Thomas Merkel]
+* add mdata information to readme. [Thomas Merkel]
+* Add remote logging server variables. [Thomas Merkel]
+* add description. [Thomas Merkel]
+* Add munin-node as default. [Thomas Merkel]
+* add first idea of metadata extra information. [Thomas Merkel]
+* add default pkgs. [Thomas Merkel]
+* Add mdata setup scripts and zoneinit. [Thomas Merkel]
+* add manifest for base image. [Thomas Merkel]
+* first import basics for base mibe. [Thomas Merkel]
+
