@@ -7,3 +7,5 @@ p5-LWP-UserAgent-Determined
 p5-Switch
 # postfix
 cy2-plain
+# dtrace
+dtracetools
