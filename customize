@@ -7,7 +7,7 @@ PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 PKGSRC_VERSION='2014Q2'
 
 # Munin plugins
-MUNIN_PLUGIN_VERSION='0.4'
+MUNIN_PLUGIN_VERSION='0.5'
 MUNIN_PLUGIN_SRC='/opt/local/lib/munin/plugins'
 MUNIN_PLUGIN_DST='/opt/local/etc/munin/plugins'
 MUNIN_PLUGINS=(
