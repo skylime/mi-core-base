@@ -9,3 +9,5 @@ p5-Switch
 cy2-plain
 # dtrace
 dtracetools
+# logtail
+logcheck
