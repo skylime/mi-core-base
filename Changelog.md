@@ -1,6 +1,13 @@
 # Changelog
 
-## 14.2.5
+## 14.2.6
+
+### New
+
+* add dtracetools for debugging to base update version number. [Thomas Merkel]
+* add dtracetools for debugging to base. [Thomas Merkel]
+
+## 14.2.5 (2014-10-02)
 
 ### New
 
