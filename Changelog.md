@@ -1,11 +1,33 @@
 # Changelog
 
-## 14.2.6
+## 14.2.7
+
+### New
+
+* version bump for mibe image. [Thomas Merkel]
+* add ssh private key mdata option for root user. [Thomas Merkel]
+
+    We would like to store the public and private ssh key for the root
+    user in mdata. This allow us to have that information after
+    reprovision a zone. The only valid key must be an rsa key and the
+    public key ist mostly not required by the system.
+
+* add logtail with the pkg logcheck. [Thomas Merkel]
+
+### Changes
+
+* update to new munin scripts. [Thomas Merkel]
+
+## 14.2.6 (2014-10-06)
 
 ### New
 
 * add dtracetools for debugging to base update version number. [Thomas Merkel]
 * add dtracetools for debugging to base. [Thomas Merkel]
+
+### Changes
+
+* update changelog. [Thomas Merkel]
 
 ## 14.2.5 (2014-10-02)
 
