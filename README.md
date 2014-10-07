@@ -15,6 +15,14 @@ Configure ssh public key for root user via `mdata` variable.
 
 - `root_authorized_keys`: ssh public key for the root user
 
+### root ssh public private key
+
+Configure ssh public and private key pair for root user via `mdata`. We only
+support rsa keys.
+
+- `root_ssh_rsa`: private ssh rsa key for root user
+- `root_ssh_rsa_pub`: public ssh key for root user (mostly not required)
+
 ### munin
 
 List of ip addresses of the munin master server that is allowed to connect. The ip addresses should be seperated by whitespace or newline.
