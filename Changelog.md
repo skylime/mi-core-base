@@ -1,6 +1,16 @@
 # Changelog
 
-## 14.2.7
+## 14.2.8
+
+### Changes
+
+* version update for last patches. [Thomas Merkel]
+
+### Other
+
+* Enable svc service by email. [Thomas Merkel]
+
+## 14.2.7 (2014-10-07)
 
 ### New
 
@@ -16,6 +26,7 @@
 
 ### Changes
 
+* update changelog file. [Thomas Merkel]
 * update to new munin scripts. [Thomas Merkel]
 
 ## 14.2.6 (2014-10-06)
@@ -122,4 +133,3 @@
 * Add mdata setup scripts and zoneinit. [Thomas Merkel]
 * add manifest for base image. [Thomas Merkel]
 * first import basics for base mibe. [Thomas Merkel]
-
