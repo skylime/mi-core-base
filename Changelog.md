@@ -1,5 +1,18 @@
 # Changelog
 
+## 14.2.9
+
+### Changes
+
+* update changelog. [Thomas Merkel]
+* version update for last patches. [Thomas Merkel]
+
+### Other
+
+* version bump. [Thomas Merkel]
+* update smartos munin plugins. [Thomas Merkel]
+* Enable svc service by email. [Thomas Merkel]
+
 ## 14.2.8
 
 ### Changes
