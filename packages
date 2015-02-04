@@ -11,3 +11,5 @@ cy2-plain
 dtracetools
 # logtail
 logcheck
+# colorlog
+ccze
