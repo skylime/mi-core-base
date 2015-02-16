@@ -4,7 +4,7 @@
 
 # Custom versions and variables
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
-PKGSRC_VERSION='2014Q2'
+PKGSRC_VERSION='2014Q3'
 
 # Munin plugins
 MUNIN_PLUGIN_VERSION='0.7'
