@@ -1,0 +1,21 @@
+#!/bin/bash
+# Thomas Merkel <tm@core.io>
+# Enable munin node plugins by commandline
+
+MUNIN_PLUGIN_SRC=${MUNIN_PLUGIN_SRC-'/opt/local/lib/munin/plugins'}
+MUNIN_PLUGIN_DST=${MUNIN_PLUGIN_DST-'/opt/local/etc/munin/plugins'}
+MUNIN_PLUGINS=${@}
+
+for plugin in ${MUNIN_PLUGINS[@]}; do
+	if [ ! -x ${MUNIN_PLUGIN_SRC}/${plugin} ]; then
+		plugin_src=${plugin%_*}_
+		[ ! -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ] && \
+			plugin_src=${plugin_src%%_*}_
+	else
+		plugin_src=${plugin}
+	fi
+	if [[ -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ]]; then
+		echo "munin-node-plugins: ${plugin}"
+		ln -sf ${MUNIN_PLUGIN_SRC}/${plugin_src} ${MUNIN_PLUGIN_DST}/${plugin}
+	fi
+done
