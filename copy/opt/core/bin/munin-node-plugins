@@ -4,9 +4,10 @@
 
 MUNIN_PLUGIN_SRC=${MUNIN_PLUGIN_SRC-'/opt/local/lib/munin/plugins'}
 MUNIN_PLUGIN_DST=${MUNIN_PLUGIN_DST-'/opt/local/etc/munin/plugins'}
-MUNIN_PLUGINS=${@}
+MUNIN_PLUGINS=${MUNIN_PLUGINS-$@}
 
 for plugin in ${MUNIN_PLUGINS[@]}; do
+	echo ${plugin}
 	if [ ! -x ${MUNIN_PLUGIN_SRC}/${plugin} ]; then
 		plugin_src=${plugin%_*}_
 		[ ! -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ] && \
