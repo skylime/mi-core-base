@@ -8,22 +8,20 @@ PKGSRC_VERSION='2014Q3'
 
 # Munin plugins
 MUNIN_PLUGIN_VERSION='0.7'
-MUNIN_PLUGIN_SRC='/opt/local/lib/munin/plugins'
-MUNIN_PLUGIN_DST='/opt/local/etc/munin/plugins'
-MUNIN_PLUGINS=(
-	'cpu'
-	'df'
-	'iostat'
-	'load'
-	'uptime'
-	'users'
-	'vmstat'
-	'io_busy_zfs'
-	'io_bytes_zfs'
-	'io_ops_zfs'
-	'if_net0'
-	'pkg_audit'
-)
+MUNIN_PLUGINS="
+	cpu
+	df
+	iostat
+	load
+	uptime
+	users
+	vmstat
+	io_busy_zfs
+	io_bytes_zfs
+	io_ops_zfs
+	if_net0
+	pkg_audit
+"
 
 # Exit if any commands fail
 set -o errexit
@@ -48,19 +46,7 @@ curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGI
 
 # Activate munin plugins
 echo "* Activate munin plugins"
-for plugin in "${MUNIN_PLUGINS[@]}"; do
-	if [ ! -x ${MUNIN_PLUGIN_SRC}/${plugin} ]; then
-		plugin_src=${plugin%_*}_
-		[ ! -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ] && \
-			plugin_src=${plugin_src%%_*}_
-	else
-		plugin_src=${plugin}
-	fi
-	if [[ -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ]]; then
-		echo "  ${plugin}"
-		ln -sf ${MUNIN_PLUGIN_SRC}/${plugin_src} ${MUNIN_PLUGIN_DST}/${plugin}
-	fi
-done
+/opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
 ## RSYSLOG
 pkgin -y install rsyslog
