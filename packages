@@ -5,8 +5,13 @@ munin-node
 p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
-# postfix
-cy2-plain
+# rsyslog
+rsyslog
+rsyslog-gnutls
+# nullmailer
+http://pkgsrc.smartos.skylime.net/skylime-extra/2014Q4/x86_64/nullmailer-1.13nb1.tgz
+# spiped
+spiped
 # dtrace
 dtracetools
 # logtail
