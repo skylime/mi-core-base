@@ -1,5 +1,36 @@
 # Changelog
 
+## 14.4.0
+
+### New
+
+* Version update to 14.4.0 release. [Thomas Merkel]
+
+	This patch is created by @wiedi. We switch from postfix to nullmailer.
+	By default the new minimal base image didn't contain any mailing
+	daemon so we remove the postfix configuration scripts and replace them
+	with an nullmailer setup.
+
+* Our own packages are signed with pkgsrc@skylime.net GPG key. [Thomas Merkel]
+
+	We replace the current keyring with a new one which contains the
+	public key from Joyent and from SkyLime
+
+### Changes
+
+* Set hostname for nullmailer smtp out. [Thomas Merkel]
+* Enable nullmailer by default if smarthost exists. [Thomas Merkel]
+* update pkgsrc version. [Thomas Merkel]
+* Modify to use the new script to generate the munin plugins. [Thomas Merkel]
+
+### Other
+
+* remove debug output. [Thomas Merkel]
+* Allow also env variables for PLUGINS. [Thomas Merkel]
+* Add first version of munin-node-plugins script. [Thomas Merkel]
+* release of new munin plugins (support more dovecot logs) [Thomas Merkel]
+* add tool ccze for colored log output. [Thomas Merkel]
+
 ## 14.2.9
 
 ### Changes
