@@ -1,11 +1,11 @@
 {
 	"name":         "core-base",
-	"version":      "14.4.0",
+	"version":      "14.4.1",
 	"description":  "Base core.io image",
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-base",
-	"base":         "5a4ba06a-c1bb-11e4-af0b-4be0ce4ce04c",
+	"base":         "24648664-e50c-11e4-be23-0349d0a5f3cf",
 	"customer_metadata": {
 		"root_authorized_keys": {"type": "text", "description": "SSH public key(s) for the root user"},
 		"syslog_host":          {"type": "text", "description": "syslog server IP address and port seperated by colon"},
