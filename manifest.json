@@ -5,7 +5,7 @@
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-base",
-	"base":         "24648664-e50c-11e4-be23-0349d0a5f3cf",
+	"base":         "75d1b5d8-e509-11e4-a51f-2fd538c62d87",
 	"customer_metadata": {
 		"root_authorized_keys": {"type": "text", "description": "SSH public key(s) for the root user"},
 		"syslog_host":          {"type": "text", "description": "syslog server IP address and port seperated by colon"},
