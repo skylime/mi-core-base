@@ -27,5 +27,6 @@ done
 # Setup service to run only once
 svccfg -s svc:/network/ssh-hostkey-mdata-setup 'setprop application/done = true'
 svcadm refresh svc:/network/ssh-hostkey-mdata-setup
+svcadm disable svc:/network/ssh-hostkey-mdata-setup
 
 exit ${SMF_EXIT_OK}
