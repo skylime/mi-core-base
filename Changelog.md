@@ -2,6 +2,13 @@
 
 ## 14.4.2
 
+### Fix
+
+* Script for ssh host key setup. [Thomas Merkel]
+
+  The script only should run once and disable itself. It should also be not
+  enabled by default and should be started by an extra mdata / zoneinit script.
+
 ### Changes
 
 * Version bump because of minimal change. [Thomas Merkel]
