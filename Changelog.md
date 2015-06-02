@@ -1,5 +1,28 @@
 # Changelog
 
+## 14.4.1
+
+### New
+
+* Add own wrapper for our personal SMF scripts which should be included / imported. [Thomas Merkel]
+* Add manifest and method for storing ssh keys in mdata variable. [Thomas Merkel]
+* We create an extra sshd host key mdata script. [Thomas Merkel]
+
+### Changes
+
+* Switch to own rsyslog config for the future. [Thomas Merkel]
+* Rename / copy the rsyslog config from system to pkgsrc. [Thomas Merkel]
+* Disable systemlog and use pkgsrc rsyslog version. [Thomas Merkel]
+
+  We would like to have gnutls for rsyslog. So we disable system
+  log which is also rsyslog and install the new rsyslog version
+  including gnutls module.
+
+### Other
+
+* We would like to use the minimal version for base image. [Thomas Merkel]
+* Update to newest 14.4.1 base. [Thomas Merkel]
+
 ## 14.4.0
 
 ### New
