@@ -13,11 +13,15 @@ if [[ ! "${SMF_METHOD}" == "start" ]] || \
 fi
 
 # Update mdata information from SSH host keys
-for key in dsa_key dsa_key_pub rsa_key rsa_key_pub; do
-	current_key=${current_key:-$(mdata-get ssh_host_${key} 2>/dev/null)} || \
-		current_key=$(cat ${SSH_HOSTS}/ssh_host_${key});
-	mdata-put ssh_host_${key} "${current_key}"
-	mdata-get ssh_host_${key} > ${SSH_HOSTS}/ssh_host_${key}
+for key in dsa_key dsa_key.pub rsa_key rsa_key.pub; do
+	# If mdata is set we update the host keys, else we will get the
+	# host keys from the filesystem and set the mdata information
+	if mdata-get ssh_host_${key} 2>/dev/null; then
+		mdata-get ssh_host_${key} > ${SSH_HOSTS}/ssh_host_${key}
+	else
+		cat ${SSH_HOSTS}/ssh_host_${key} |\
+			mdata-put ssh_host_${key}
+	fi
 done
 
 # Setup service to run only once
