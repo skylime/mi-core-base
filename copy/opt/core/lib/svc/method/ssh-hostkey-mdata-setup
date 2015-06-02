@@ -6,9 +6,8 @@
 # Set basedir and default config file
 SSH_HOSTS='/var/ssh'
 
-# Do nothing if not under SMF, not provisioning, or already done.
-if [[ ! "${SMF_METHOD}" == "start" ]] || \
-   [[ $(svcprop -p application/done ssh-hostkey-mdata-setup) =~ true ]]; then
+# Do nothing if not under SMF
+if [[ ! "${SMF_METHOD}" == "start" ]]; then
 	exit ${SMF_EXIT_OK}
 fi
 
@@ -24,9 +23,7 @@ for key in dsa_key dsa_key.pub rsa_key rsa_key.pub; do
 	fi
 done
 
-# Setup service to run only once
-svccfg -s svc:/network/ssh-hostkey-mdata-setup 'setprop application/done = true'
-svcadm refresh svc:/network/ssh-hostkey-mdata-setup
+# Disable service after run once
 svcadm disable svc:/network/ssh-hostkey-mdata-setup
 
 exit ${SMF_EXIT_OK}
