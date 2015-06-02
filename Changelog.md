@@ -1,5 +1,12 @@
 # Changelog
 
+## 14.4.2
+
+### Changes
+
+* Version bump because of minimal change. [Thomas Merkel]
+* The core smf should be started before other core scripts run. [Thomas Merkel]
+
 ## 14.4.1
 
 ### New
