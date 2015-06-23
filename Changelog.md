@@ -1,5 +1,14 @@
 # Changelog
 
+## 15.1.0
+
+### New
+
+* Update to new version 15.1.0. [Thomas Merkel]
+
+  Use new minimal base image from joyent. Be sure we're using pkgsrc nullmailer
+  version. Update manifests to new version.
+
 ## 14.4.2
 
 ### Fix
