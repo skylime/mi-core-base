@@ -20,5 +20,6 @@ logcheck
 ccze
 # tools
 base64
+sudo
 # backup
 znapzend
