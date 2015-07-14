@@ -18,3 +18,7 @@ dtracetools
 logcheck
 # colorlog
 ccze
+# tools
+base64
+# backup
+znapzend
