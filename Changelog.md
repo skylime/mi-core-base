@@ -1,5 +1,12 @@
 # Changelog
 
+## 15.1.1
+
+### New
+
+* Sudo is required on many images. [Thomas Merkel]
+* Install base64 as default tool and also add znapzend as default backup tool. [Thomas Merkel]
+
 ## 15.1.0
 
 ### New
