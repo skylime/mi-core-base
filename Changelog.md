@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.1.2
+
+### Fix
+
+* We require coreutils for many script on our system so we install that by default. [Thomas Merkel]
+
 ## 15.1.1
 
 ### New
