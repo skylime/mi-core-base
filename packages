@@ -19,7 +19,7 @@ logcheck
 # colorlog
 ccze
 # tools
-base64
+coreutils
 sudo
 # backup
 znapzend
