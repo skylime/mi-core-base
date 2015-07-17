@@ -20,6 +20,7 @@ logcheck
 ccze
 # tools
 coreutils
+findutils
 sudo
 # backup
 znapzend
