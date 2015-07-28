@@ -1,5 +1,11 @@
 # Changelog
 
+## 15.1.3
+
+### New
+
+* We also need findutils for gnufind. [Thomas Merkel]
+
 ## 15.1.2
 
 ### Fix
