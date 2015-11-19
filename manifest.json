@@ -18,6 +18,7 @@
 		"ssh_host_rsa_key":     {"type": "text", "description": "private SSH rsa key for the host daemon"},
 		"ssh_host_rsa_key.pub": {"type": "text", "description": "public SSH rsa key for the host daemon"},
 		"ssh_host_dsa_key":     {"type": "text", "description": "private SSH dsa key for the host daemon"},
-		"ssh_host_dsa_key.pub": {"type": "text", "description": "public SSH dsa key for the host daemon"}
+		"ssh_host_dsa_key.pub": {"type": "text", "description": "public SSH dsa key for the host daemon"},
+		"munin_master_allow":   {"type": "text", "description": "ip addresses (alternative hostname) of the munin master node"}
 	}
 }
