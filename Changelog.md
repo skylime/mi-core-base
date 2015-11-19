@@ -1,5 +1,14 @@
 # Changelog
 
+# 15.3.0
+
+### New
+
+* Update to new version 15.3.0 [Tobias Schäfer]
+
+  Use new minimal base image from joyent and latest pkgsrc release.
+  Update manifest to new version.
+
 ## 15.1.3
 
 ### New
