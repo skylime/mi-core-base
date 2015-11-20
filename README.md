@@ -43,3 +43,13 @@ To have cron emails on errors we like to configure postfix as local smtp server.
 - `mail_auth_user`: smtp username for authentication
 - `mail_auth_pass`: smtp password for authentication
 - `mail_adminaddr`: admin email address for everything from root@localhost
+
+### ssh daemon
+
+Configure ssh public and private key pairs for the host daemon via `mdata`.
+
+- `ssh_host_rsa_key`:     private SSH rsa key
+- `ssh_host_rsa_key.pub`: public SSH rsa key
+- `ssh_host_dsa_key`:     private SSH dsa key
+- `ssh_host_dsa_key.pub`: public SSH dsa key
+
