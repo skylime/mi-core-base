@@ -22,5 +22,6 @@ ccze
 coreutils
 findutils
 sudo
+gsed
 # backup
 znapzend
