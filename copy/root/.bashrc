@@ -9,3 +9,15 @@ if [ "$PS1" ]; then
                 PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%\.*} \007" && history -a'
         fi
 fi
+
+# bash svc log functions
+svclog() {
+        if [[ -z "$PAGER" ]]; then
+                PAGER=less
+        fi
+        $PAGER `svcs -L $1`
+}
+
+svclogf() {
+        /usr/bin/tail -f `svcs -L $1`
+}
