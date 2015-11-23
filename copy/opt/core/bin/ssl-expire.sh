@@ -7,7 +7,7 @@ trigger_unixtime=$(date +%s -d "+31 days")
 
 for location in ${crt_locations}; do
 	[ ! -d "${location}" ] && continue
-	crts=$(find ${location} -type f -iname *.pem -o -iname *.crt)
+	crts=$(find ${location} -type f -iname "*.pem" -o -iname "*.crt")
 	for crt in ${crts}; do
 		[[ $(basename ${crt}) =~ ${crt_ignore} ]] && continue
 		subject=$(openssl x509 -in ${crt} -subject -noout | sed 's:.*/CN=\(.*\)$:\1:g')
