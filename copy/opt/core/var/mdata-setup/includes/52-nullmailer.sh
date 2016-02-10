@@ -1,6 +1,6 @@
 #!/bin/bash
 if mdata-get mail_smarthost 1>/dev/null 2>&1; then
-	echo "$(hostname)" > /opt/local/etc/nullmailer/defaulthost
+	echo "$(hostname)" > /opt/local/etc/nullmailer/me
 
 	if mdata-get mail_adminaddr 1>/dev/null 2>&1; then
 		mdata-get mail_adminaddr > /opt/local/etc/nullmailer/adminaddr
