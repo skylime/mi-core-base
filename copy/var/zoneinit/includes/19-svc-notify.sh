@@ -3,3 +3,5 @@
 
 svccfg setnotify -g from-online,to-maintenance mailto:root@localhost
 svccfg setnotify problem-diagnosed,problem-updated mailto:root@localhost
+
+svcadm enable -r svc:/system/fm/smtp-notify:default
