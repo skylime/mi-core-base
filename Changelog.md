@@ -1,5 +1,30 @@
 # Changelog
 
+## 15.4.0
+
+### New
+
+* Enable smtp notify service. [Thomas Merkel]
+* Add bashrc for root user from default. [Thomas Merkel]
+* Add gsed as default package to base. [Thomas Merkel]
+
+### Fix
+
+* Find issue with crt lookup. [Thomas Merkel]
+* Store FQDN for nullmailer in me file. [Thomas Merkel]
+
+### Other
+
+* Provide SVC log functions from global zone to zones. [Thomas Merkel]
+
+  The functions help a lot for debugging and you don&#x27;t need to know
+  the full command :-)
+
+* Use FQDN for PS1. [Thomas Merkel]
+
+  We use a cloud based environment, so most of the time some servers have the
+  same name but different FQDN.
+
 # 15.3.0
 
 ### New
