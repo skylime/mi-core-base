@@ -1,5 +1,19 @@
 # Changelog
 
+## 15.4.1
+
+### Fix
+
+* Disable fm/smtp-notify because of reboot issue. [Thomas Merkel]
+
+	We detected an issue that the server isn&#x27;t stopped somehow during
+	reboot of the zone. This error happen sometimes and is currenlty not all
+	time reproducible. But the zone will freeze and could only be restarted by
+	restarting the global zone. For that reason we disabled the notificateion
+	service again.
+
+  https://github.com/wiedi/deploy-zone/commit/4ad54bd07ab11933c4d21a55c4e7c794e5a998da
+
 ## 15.4.0
 
 ### New
