@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.1.0
+
+### New
+
+* Allowed statless addrconf. [tschaefer]
+* Default UTF-8 support for root users shell. [Thomas Merkel]
+* Version bump to 16.1.0 minimal64. [Thomas Merkel]
+
 ## 15.4.1
 
 ### Fix
