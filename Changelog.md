@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.2.0
+
+### New
+
+* Update to new base version 16.2.0. [Thomas Merkel]
+
 ## 16.1.0
 
 ### New
