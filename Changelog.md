@@ -1,5 +1,12 @@
 # Changelog
 
+## 16.2.1
+
+### Fix
+
+* Version bump to 16.2.1. [Thomas Merkel]
+* Fix issue with wrong pkgsrc version in base image. [Thomas Merkel]
+
 ## 16.2.0
 
 ### New
