@@ -4,7 +4,7 @@ set -o errexit
 
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
-PKGSRC_VERSION='2016Q1'
+PKGSRC_VERSION='2016Q2'
 
 # Munin plugins
 MUNIN_PLUGIN_VERSION='0.7'
