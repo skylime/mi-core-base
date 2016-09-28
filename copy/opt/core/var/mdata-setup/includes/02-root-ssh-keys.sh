@@ -8,10 +8,10 @@ if mdata-get root_ssh_rsa 1>/dev/null 2>&1; then
 	mdata-get root_ssh_rsa >> /root/.ssh/id_rsa
 
 	# Mostly not required but we only support it with privat key
-	if mdata-get root_ssh_rsa_pub 1>/dev/null 2>&1; then
-		echo "# This file is managed by mdata-get root_ssh_rsa_pub" \
+	if mdata-get root_ssh_rsa.pub 1>/dev/null 2>&1; then
+		echo "# This file is managed by mdata-get root_ssh_rsa.pub" \
 			> /root/.ssh/id_rsa.pub
-		mdata-get root_ssh_rsa_pub >> /root/.ssh/id_rsa.pub
+		mdata-get root_ssh_rsa.pub >> /root/.ssh/id_rsa.pub
 	fi
 
 	# Set correct permissions
