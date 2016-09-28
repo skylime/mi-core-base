@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.2.2
+
+### New
+
+* Disable in.ndp log spam if addrconf isn&#x27;t used. [Thomas Merkel]
+
+### Fix
+
+* Fix issue with wrong naming for root_ssh_rsa.pub mdata. [Thomas Merkel]
+
 ## 16.2.1
 
 ### Fix
