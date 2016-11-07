@@ -4,6 +4,7 @@ set -o errexit
 
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
+PKGSRC_ARCH='i386'
 PKGSRC_VERSION='2016Q2'
 
 # Munin plugins
@@ -24,7 +25,7 @@ MUNIN_PLUGINS="
 "
 
 echo "* Use the skylime pkgsrc mirror"
-echo "http://pkgsrc.smartos.skylime.net/packages/SmartOS/${PKGSRC_VERSION}/x86_64/All" > /opt/local/etc/pkgin/repositories.conf
+echo "http://pkgsrc.smartos.skylime.net/packages/SmartOS/${PKGSRC_VERSION}/${PKGSRC_ARCH}/All" > /opt/local/etc/pkgin/repositories.conf
 pkg_admin rebuild
 pkgin -y up
 
