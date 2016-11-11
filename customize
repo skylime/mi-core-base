@@ -41,6 +41,9 @@ echo "* Activate munin plugins"
 echo "* Create rsyslog.d folder for extra configuration files"
 mkdir -p /opt/local/etc/rsyslog.d
 
+echo "* Cleanup root home because of delegate dataset usage"
+rm -rf /root/.[^.]*
+
 echo "* Cleaning up."
 rm -rf /root/*
 sm-prepare-image -y
