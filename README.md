@@ -23,6 +23,12 @@ support rsa keys.
 - `root_ssh_rsa`: private ssh rsa key for root user
 - `root_ssh_rsa_pub`: public ssh key for root user (mostly not required)
 
+### admin authorized_keys
+
+Configure ssh public key for admin user via `mdata` variable.
+
+- `admin_authorized_keys`: ssh public key for the admin user
+
 ### munin
 
 List of ip addresses of the munin master server that is allowed to connect. The ip addresses should be seperated by whitespace or newline.
