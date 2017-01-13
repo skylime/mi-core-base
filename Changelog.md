@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.0
+
+### New
+
+* Update to base-16Q4 release. [Thomas Merkel]
+
 ## 16.3.0
 
 ### New
