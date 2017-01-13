@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.1
+
+### Fix
+
+* Fix pkgsrc version issue on customize script. [Thomas Merkel]
+
 ## 16.4.0
 
 ### New
