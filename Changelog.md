@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.2
+
+### Fix
+
+* Rename 05-delegated-dataset.sh to 04-... because it should not be overwritten from child datasets. [Thomas Merkel]
+
 ## 16.4.1
 
 ### Fix
