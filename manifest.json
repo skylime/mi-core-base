@@ -1,11 +1,11 @@
 {
 	"name":         "core-base-32",
-	"version":      "16.2.0",
+	"version":      "16.4.0",
 	"description":  "Base core.io image",
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-base",
-	"base":         "d3bbc4f8-499a-11e6-9484-1bfe09f9be44",
+	"base":         "99c27612-d418-11e6-bfb6-9b2fc987fbf2",
 	"customer_metadata": {
 		"root_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
 		"root_ssh_rsa":         {"type": "text", "description": "private SSH rsa key for root user"},

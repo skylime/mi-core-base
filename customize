@@ -4,9 +4,6 @@ set -o errexit
 
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
-PKGSRC_ARCH='i386'
-PKGSRC_VERSION='2016Q2'
-
 # Munin plugins
 MUNIN_PLUGIN_VERSION='0.7'
 MUNIN_PLUGINS="
@@ -25,7 +22,8 @@ MUNIN_PLUGINS="
 "
 
 echo "* Use the skylime pkgsrc mirror"
-echo "http://pkgsrc.smartos.skylime.net/packages/SmartOS/${PKGSRC_VERSION}/${PKGSRC_ARCH}/All" > /opt/local/etc/pkgin/repositories.conf
+gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkgin/repositories.conf
+gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkg_install.conf
 pkg_admin rebuild
 pkgin -y up
 
@@ -41,6 +39,9 @@ echo "* Activate munin plugins"
 
 echo "* Create rsyslog.d folder for extra configuration files"
 mkdir -p /opt/local/etc/rsyslog.d
+
+echo "* Cleanup home/admin because of delegate dataset usage"
+rm -rf /home/admin/.[^.]*
 
 echo "* Cleaning up."
 rm -rf /root/*

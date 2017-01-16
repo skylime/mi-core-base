@@ -1,5 +1,35 @@
 # Changelog
 
+## 16.4.2
+
+### Fix
+
+* Rename 05-delegated-dataset.sh to 04-... because it should not be overwritten from child datasets. [Thomas Merkel]
+
+## 16.4.1
+
+### Fix
+
+* Fix pkgsrc version issue on customize script. [Thomas Merkel]
+
+## 16.4.0
+
+### New
+
+* Update to base-16Q4 release. [Thomas Merkel]
+
+## 16.3.0
+
+### New
+
+* Provide support for delegated dataset to the &quot;admin&quot; user. [Thomas Merkel]
+
+  This feature automatically configure a delegated dataset to the &quot;admin&quot; user and provides an extra mdata-variable which allow SSH key deployment for the &quot;admin&quot; user. We consider for disabling the login as &quot;root&quot; which is not required anymore because of the &quot;admin&quot;-users sudo privileges.
+
+### Other
+
+* Version upgrade to 16.3.1 base64 image from Joyent. [Thomas Merkel]
+
 ## 16.2.2
 
 ### New
