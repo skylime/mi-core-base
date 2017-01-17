@@ -1,4 +1,4 @@
-# mi-core-base
+# mi-core-base - 32bit
 
 This repository is based on [Joyent mibe](https://github.com/joyent/mibe).
 
