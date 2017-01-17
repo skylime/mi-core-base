@@ -23,5 +23,7 @@ coreutils
 findutils
 sudo
 gsed
+# grep required to work with sm- commands
+grep
 # backup
 znapzend
