@@ -27,3 +27,5 @@ gsed
 grep
 # backup
 znapzend
+# letsencrypt
+http://pkgsrc.smartos.skylime.net/skylime-extra/2016Q4/x86_64/dehydrated-0.3.1.tgz
