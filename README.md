@@ -9,6 +9,12 @@ munin and remote syslog. This should be the default image for all core.io zones.
 
 ## mdata variables
 
+### admin authorized_keys
+
+Configure ssh public key for admin user via `mdata` variable.
+
+- `admin_authorized_keys`: ssh public key for the admin user
+
 ### root authorized_keys
 
 Configure ssh public key for root user via `mdata` variable.
