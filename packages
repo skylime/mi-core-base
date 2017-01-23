@@ -24,3 +24,5 @@ gsed
 grep
 # backup
 znapzend
+# letsencrypt
+py27-certbot
