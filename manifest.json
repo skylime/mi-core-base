@@ -1,6 +1,6 @@
 {
 	"name":         "core-base",
-	"version":      "16.4.2",
+	"version":      "16.4.3",
 	"description":  "Base core.io image",
 	"organization": "SkyLime",
 	"brand":        "Instance",
@@ -11,7 +11,6 @@
 		"root_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
 		"root_ssh_rsa":         {"type": "text", "description": "private SSH rsa key for root user"},
 		"root_ssh_rsa_pub":     {"type": "text", "description": "public SSH rsa key for root user (mostly not required)"},
-		"syslog_host":          {"type": "text", "description": "syslog server IP address and port seperated by colon"},
 		"mail_smarthost":       {"type": "text", "description": "hostname of remote smtp server"},
 		"mail_auth_user":       {"type": "text", "description": "smtp username if authentication is required"},
 		"mail_auth_pass":       {"type": "text", "description": "smtp password"},
