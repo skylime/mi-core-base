@@ -37,9 +37,6 @@ curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGI
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
-echo "* Create rsyslog.d folder for extra configuration files"
-mkdir -p /opt/local/etc/rsyslog.d
-
 echo "* Cleanup home/admin because of delegate dataset usage"
 rm -rf /home/admin/.[^.]*
 

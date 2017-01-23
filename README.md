@@ -41,12 +41,6 @@ List of ip addresses of the munin master server that is allowed to connect. The 
 
 - `munin_master_allow`: ip addresses (alternative hostname) of the munin master node
 
-### rsyslog
-
-Remote syslog server that accept syslog tcp connections on specified port. We use our [mi-core-logger](https://github.com/skylime/mi-core-logger) image for that.
-
-- `syslog_host`: ip address and port seperated by colon of the remote syslog server
-
 ### postfix
 
 To have cron emails on errors we like to configure postfix as local smtp server.
