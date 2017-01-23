@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 crt_locations=${crt_locations-'/opt/local/etc'}
-crt_ignore="mozilla-rootcert-*"
+crt_ignores="mozilla-rootcert-.* privkey.* .*-certbot.pem"
 today_unixtime=$(date +%s)
 trigger_unixtime=$(date +%s -d "+31 days")
 
@@ -9,7 +9,9 @@ for location in ${crt_locations}; do
 	[ ! -d "${location}" ] && continue
 	crts=$(find ${location} -type f -iname "*.pem" -o -iname "*.crt")
 	for crt in ${crts}; do
-		[[ $(basename ${crt}) =~ ${crt_ignore} ]] && continue
+		for crt_ignore in ${crt_ignores}; do
+			[[ $(basename ${crt}) =~ ${crt_ignore} ]] && continue 2
+		done
 		subject=$(openssl x509 -in ${crt} -subject -noout | sed 's:.*/CN=\(.*\)$:\1:g')
 		expire_unixtime=$(date --date="$(openssl x509 -in ${crt} -enddate -noout | cut -d= -f 2)" +%s)
 		expire_datetime=$(date +"%Y-%m-%d" -d "@${expire_unixtime}")
