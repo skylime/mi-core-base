@@ -24,14 +24,14 @@ done
 
 if host ${CN} 1>/dev/null 2>&1; then
 	# Setup account email address to mail_adminaddr if exists
-	if [[ -z ${EMAIL} ]]; then
-		EMAIL='--register-unsafely-without-email'
-	else
+	if [[ ! -z ${EMAIL} ]]; then
 		EMAIL="--email ${EMAIL}"
+	else
+		EMAIL='--register-unsafely-without-email'
 	fi
 
 	# Run initial certbot command to create account and certificate
-	certbot certonly
+	certbot certonly \
 		--standalone \
 		--agree-tos \
 		--quiet \
