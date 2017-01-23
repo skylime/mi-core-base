@@ -22,28 +22,24 @@ while getopts "c:m:" opt; do
 	esac
 done
 
-if host ${CN} 1>/dev/null 2>&1; then
-	# Setup account email address to mail_adminaddr if exists
-	if [[ ! -z ${EMAIL} ]]; then
-		EMAIL="--email ${EMAIL}"
-	else
-		EMAIL='--register-unsafely-without-email'
-	fi
-
-	# Run initial certbot command to create account and certificate
-	certbot certonly \
-		--standalone \
-		--agree-tos \
-		--quiet \
-		--text \
-		--non-interactive
-		${EMAIL} \
-		--domains ${HOST}
-
-	# Create cronjob to automatically check or renew the certificate two
-	# times a day
-	CRON='0 0,12 * * * certbot renew --text --non-interactive --quiet'
-	(crontab -l 2>/dev/null || true; echo "$CRON" ) | sort | uniq | crontab
+# Setup account email address to mail_adminaddr if exists
+if [[ ! -z ${EMAIL} ]]; then
+	EMAIL="--email ${EMAIL}"
 else
-	echo 'The common name you provided could not be resolved by DNS!' 1>&2;
+	EMAIL='--register-unsafely-without-email'
 fi
+
+# Run initial certbot command to create account and certificate
+certbot certonly \
+	--standalone \
+	--agree-tos \
+	--quiet \
+	--text \
+	--non-interactive
+	${EMAIL} \
+	--domains ${CN}
+
+# Create cronjob to automatically check or renew the certificate two
+# times a day
+CRON='0 0,12 * * * certbot renew --text --non-interactive --quiet'
+(crontab -l 2>/dev/null || true; echo "$CRON" ) | sort | uniq | crontab
