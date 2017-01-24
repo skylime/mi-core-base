@@ -7,6 +7,9 @@
 CN=$(hostname)
 EMAIL=$(mdata-get mail_adminaddr 2>/dev/null)
 
+# Ignore python warnings by default in this script
+export PYTHONWARNINGS="ignore"
+
 # Help function
 function help() {
 	echo "${0} [-c common name] [-m mail address]"
@@ -14,7 +17,7 @@ function help() {
 }
 
 # Option parameters
-while getopts "c:m:" opt; do
+while getopts ":c:m:" opt; do
 	case "${opt}" in
 		c) CN=${OPTARG} ;;
 		m) EMAIL=${OPTARG} ;;
@@ -30,14 +33,17 @@ else
 fi
 
 # Run initial certbot command to create account and certificate
-certbot certonly \
+if ! certbot certonly \
 	--standalone \
 	--agree-tos \
 	--quiet \
 	--text \
 	--non-interactive \
 	${EMAIL} \
-	--domains ${CN}
+	--domains ${CN}; then
+	# Exit on error and ignore crons
+	exit 1
+fi
 
 # Create cronjob to automatically check or renew the certificate two
 # times a day
