@@ -1,5 +1,13 @@
 # Changelog
 
+## 16.4.4
+
+### Fix
+
+* Fix parameter issue for ssl-selfsigned.sh. [Thomas Merkel]
+* Fix error and return value in let&#x27;s encrypt script. [Thomas Merkel]
+* Remove wrong information from README. [Thomas Merkel]
+
 ## 16.4.3
 
 ### New
