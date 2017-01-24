@@ -1,5 +1,26 @@
 # Changelog
 
+## 16.4.3
+
+### New
+
+* Letsencrypt helper scripts. [Thomas Merkel]
+* Add grep as default command for all images. [Thomas Merkel]
+* Use gsed to replace skylime repository for pkgsrc. [Thomas Merkel]
+
+### Changes
+
+* Remove rsyslog from core-base. [Thomas Merkel]
+
+  We will disable the support for rsyslog remote logging because it didn&#x27;t worked
+  that well based on caching and memory issues. We will continue to use the default
+  rsyslog provided from the global zone / base.
+
+### Other
+
+* Fix typo and add full path to the cron call. [Thomas Merkel]
+* Update readme and manifest for admin ssh keys. [Thomas Merkel]
+
 ## 16.4.2
 
 ### Fix
