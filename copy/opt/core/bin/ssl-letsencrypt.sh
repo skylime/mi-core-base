@@ -35,11 +35,11 @@ certbot certonly \
 	--agree-tos \
 	--quiet \
 	--text \
-	--non-interactive
+	--non-interactive \
 	${EMAIL} \
 	--domains ${CN}
 
 # Create cronjob to automatically check or renew the certificate two
 # times a day
-CRON='0 0,12 * * * certbot renew --text --non-interactive --quiet'
+CRON='0 0,12 * * * /opt/local/bin/certbot renew --text --non-interactive --quiet'
 (crontab -l 2>/dev/null || true; echo "$CRON" ) | sort | uniq | crontab
