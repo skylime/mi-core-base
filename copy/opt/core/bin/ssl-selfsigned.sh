@@ -20,7 +20,7 @@ while getopts ":d:c:f:" opt; do
 	case "${opt}" in
 		d) DESTINATION=${OPTARG} ;;
 		c) CN=${OPTARG} ;;
-		p) FILENAME=${OPTARG} ;;
+		f) FILENAME=${OPTARG} ;;
 		*) help ;;
 	esac
 done
