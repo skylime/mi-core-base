@@ -45,7 +45,11 @@ if ! certbot certonly \
 	exit 1
 fi
 
+# Create empty hook scripts by default
+touch /opt/local/etc/letsencrypt/{pre,post,renew}-hook.sh
+chmod 700 /opt/local/etc/letsencrypt/*-hook.sh
+
 # Create cronjob to automatically check or renew the certificate two
 # times a day
-CRON='0 0,12 * * * /opt/local/bin/certbot renew --text --non-interactive --quiet'
+CRON='0 0,12 * * * /opt/local/bin/certbot renew --text --non-interactive --quiet --pre-hook "/opt/local/etc/letsencrypt/pre-hook.sh" --post-hook "/opt/local/etc/letsencrypt/post-hook.sh" --renew-hook "/opt/local/etc/letsencrypt/renew-hook.sh"'
 (crontab -l 2>/dev/null || true; echo "$CRON" ) | sort | uniq | crontab
