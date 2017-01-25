@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.5
+
+### Changes
+
+* Let&#x27;s encrypt add pre,post and renew hook scripts which could be used later in any other image. [Thomas Merkel]
+
 ## 16.4.4
 
 ### Fix
