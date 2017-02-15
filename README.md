@@ -9,6 +9,12 @@ munin and remote syslog. This should be the default image for all core.io zones.
 
 ## mdata variables
 
+### admin authorized_keys
+
+Configure ssh public key for admin user via `mdata` variable.
+
+- `admin_authorized_keys`: ssh public key for the admin user
+
 ### root authorized_keys
 
 Configure ssh public key for root user via `mdata` variable.
@@ -23,23 +29,11 @@ support rsa keys.
 - `root_ssh_rsa`: private ssh rsa key for root user
 - `root_ssh_rsa_pub`: public ssh key for root user (mostly not required)
 
-### admin authorized_keys
-
-Configure ssh public key for admin user via `mdata` variable.
-
-- `admin_authorized_keys`: ssh public key for the admin user
-
 ### munin
 
 List of ip addresses of the munin master server that is allowed to connect. The ip addresses should be seperated by whitespace or newline.
 
 - `munin_master_allow`: ip addresses (alternative hostname) of the munin master node
-
-### rsyslog
-
-Remote syslog server that accept syslog tcp connections on specified port. We use our [mi-core-logger](https://github.com/skylime/mi-core-logger) image for that.
-
-- `syslog_host`: ip address and port seperated by colon of the remote syslog server
 
 ### postfix
 

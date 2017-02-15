@@ -5,9 +5,6 @@ munin-node
 p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
-# rsyslog
-rsyslog
-rsyslog-gnutls
 # nullmailer
 nullmailer
 # spiped
@@ -23,5 +20,9 @@ coreutils
 findutils
 sudo
 gsed
+# grep required to work with sm- commands
+grep
 # backup
 znapzend
+# letsencrypt
+py27-certbot
