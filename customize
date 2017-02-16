@@ -5,20 +5,24 @@ set -o errexit
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
 # Munin plugins
-MUNIN_PLUGIN_VERSION='0.7'
+MUNIN_PLUGIN_VERSION='0.8'
 MUNIN_PLUGINS="
-	cpu
+	cputime
 	df
-	iostat
 	load
 	uptime
 	users
-	vmstat
-	io_busy_zfs
-	io_bytes_zfs
-	io_ops_zfs
+	proc_state
+	vfs_bytes
+	vfs_iops
+	vfs_latency
 	if_net0
 	pkg_audit
+	memory_cap
+	swap_cap
+	smf
+	tcp
+	udp
 "
 
 echo "* Use the skylime pkgsrc mirror"
