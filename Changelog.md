@@ -1,5 +1,11 @@
 # Changelog
 
+## 16.4.6
+
+### Other
+
+* Update to newest munin-plugins version. [Thomas Merkel]
+
 ## 16.4.5
 
 ### Changes
