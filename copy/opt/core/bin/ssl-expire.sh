@@ -3,7 +3,7 @@
 crt_locations=${crt_locations-'/opt/local/etc'}
 crt_ignores="mozilla-rootcert-.* privkey.* .*-certbot.pem"
 today_unixtime=$(date +%s)
-trigger_unixtime=$(date +%s -d "+31 days")
+trigger_unixtime=$(date +%s -d "+14 days")
 
 for location in ${crt_locations}; do
 	[ ! -d "${location}" ] && continue
