@@ -1,11 +1,11 @@
 {
-	"name":         "core-base",
+	"name":         "core-base-multiarch",
 	"version":      "16.4.7",
 	"description":  "Base core.io image",
 	"organization": "SkyLime",
 	"brand":        "Instance",
 	"homepage":     "https://github.com/skylime/mi-core-base",
-	"base":         "b2d3c018-e6e5-11e6-9815-f7d92aad9089",
+	"base":         "72b83d46-e6e6-11e6-8d45-13d9efe11ae1",
 	"customer_metadata": {
 		"admin_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the admin user"},
 		"root_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
