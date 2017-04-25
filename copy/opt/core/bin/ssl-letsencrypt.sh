@@ -12,15 +12,20 @@ export PYTHONWARNINGS="ignore"
 
 # Help function
 function help() {
-	echo "${0} [-c common name] [-m mail address]"
+	echo "${0} [-c common name] [-m mail address] [-t type]"
+	echo
+	echo "TYPE:"
+	echo "  standalone: Doesn't require any webserver to be running"
+	echo "  webroot:    Require webserver to be configured for webroot /var/letsencrypt/acme"
 	exit 1
 }
 
 # Option parameters
-while getopts ":c:m:" opt; do
+while getopts ":c:m:t:" opt; do
 	case "${opt}" in
 		c) CN=${OPTARG} ;;
 		m) EMAIL=${OPTARG} ;;
+		t) TYPE=${OPTARG} ;;
 		*) help ;;
 	esac
 done
@@ -32,9 +37,21 @@ else
 	EMAIL='--register-unsafely-without-email'
 fi
 
+# Configure default parameters
+# Fallback type is always standalone
+case ${TYPE} in
+	webroot)
+		mkdir -p /var/letsencrypt/acme
+		BOT_ARGS='--webroot -w /var/letsencrypt/acme'
+		;;
+	*)
+		BOT_ARGS='--standalone'
+		;;
+esac
+
 # Run initial certbot command to create account and certificate
 if ! certbot certonly \
-	--standalone \
+	${BOT_ARGS} \
 	--agree-tos \
 	--quiet \
 	--text \

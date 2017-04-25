@@ -1,5 +1,15 @@
 # Changelog
 
+## 16.4.7
+
+### New
+
+* Provide new version of ssl-letsencrypt.sh which also support webroots. [Thomas Merkel]
+
+### Fix
+
+* Switch from 31day warning to 14day warning. [Thomas Merkel]
+
 ## 16.4.6
 
 ### Other
