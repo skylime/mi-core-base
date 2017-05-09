@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.1.1
+
+### New
+
+* Add check-log script. [Thomas Merkel]
+
 ## 17.1.0
 
 ### New
