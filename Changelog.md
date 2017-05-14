@@ -1,5 +1,34 @@
 # Changelog
 
+## 17.1.2
+
+### New
+
+* Update to newest version of smartos munin plugins. [Thomas Merkel]
+
+### Fix
+
+* Fix permissions for check-log script. [Thomas Merkel]
+
+## 17.1.1
+
+### New
+
+* Add check-log script. [Thomas Merkel]
+
+## 17.1.0
+
+### New
+
+* Version bump to 17.1.0. [Thomas Merkel]
+* New feature to store root knonw_hosts in mdata variable. [Thomas Merkel]
+* Enable cert_expire munin plugin by default. [Thomas Merkel]
+
+### Changes
+
+* Provide the newest version of ssl-expire.sh. [Thomas Merkel]
+* Update munin plugins to v0.9. [Thomas Merkel]
+
 ## 16.4.7
 
 ### New
