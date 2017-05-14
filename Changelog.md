@@ -1,5 +1,21 @@
 # Changelog
 
+## 17.1.2
+
+### New
+
+* Update to newest version of smartos munin plugins. [Thomas Merkel]
+
+### Fix
+
+* Fix permissions for check-log script. [Thomas Merkel]
+
+## 17.1.1
+
+### New
+
+* Add check-log script. [Thomas Merkel]
+
 ## 17.1.0
 
 ### New
