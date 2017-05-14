@@ -1,4 +1,6 @@
 #!/bin/bash
+start=`date +%s`
+
 UUID=$(mdata-get sdc:uuid)
 DDS=zones/${UUID}/data
 
@@ -27,3 +29,6 @@ if zfs list ${DDS} 1>/dev/null 2>&1; then
 else
 	install_skel
 fi
+
+end=`date +%s`
+log "debug (sec): $((end-start))"
