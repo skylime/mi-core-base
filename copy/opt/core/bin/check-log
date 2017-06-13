@@ -23,7 +23,7 @@ tempfile="/tmp/$(basename ${file})"
 touch "${tempfile}.current" "${tempfile}.last"
 
 # Lookup
-grep "${lookup}" "${file}" | tail -n${lines} > "${tempfile}.current"
+grep -E "${lookup}" "${file}" | tail -n${lines} > "${tempfile}.current"
 if ! diff "${tempfile}.last" "${tempfile}.current" >/dev/null 2>&1; then
 	cat "${tempfile}.current" 1>&2
 fi
