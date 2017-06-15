@@ -1,5 +1,16 @@
 # Changelog
 
+## 17.1.3
+
+### New
+
+* Update nullmailer to version 2.0 [Thomas Merkel]
+
+### Fix
+
+* Add znapzend cronjob for error lookups. [Thomas Merkel]
+* Switch to grep -E to support simple regex parameters. [Thomas Merkel]
+
 ## 17.1.2
 
 ### New
