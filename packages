@@ -6,7 +6,7 @@ p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
 # nullmailer
-https://pkgsrc.smartos.skylime.net/skylime-extra/2017Q1/x86_64/nullmailer-2.0.tgz
+nullmailer
 # spiped
 spiped
 # dtrace
