@@ -1,0 +1,90 @@
+# core-base sshd_config
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+Port 22
+AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+# The default requires explicit activation of protocol 1
+Protocol 2
+
+HostKey /var/ssh/ssh_host_rsa_key
+HostKey /var/ssh/ssh_host_dsa_key
+HostKey /var/ssh/ssh_host_ecdsa_key
+HostKey /var/ssh/ssh_host_ed25519_key
+
+# Logging
+# obsoletes QuietMode and FascistLogging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Use the client's locale/language settings
+#AcceptEnv LANG LC_ALL LC_CTYPE LC_COLLATE LC_TIME LC_NUMERIC
+#AcceptEnv LC_MONETARY LC_MESSAGES
+
+# Authentication:
+
+#LoginGraceTime 2m
+PermitRootLogin yes
+StrictModes yes
+MaxAuthTries 6
+#MaxSessions 10
+
+#RSAAuthentication yes
+#PubkeyAuthentication yes
+
+# The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+# but this is overridden so installations will only check .ssh/authorized_keys
+AuthorizedKeysFile .ssh/authorized_keys
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+# Change to no to disable s/key passwords
+#ChallengeResponseAuthentication yes
+
+# On Illumos OpenSSH will always use PAM for authentication.
+# This config option is valid but will have no effect.
+#UsePAM yes
+
+# KeepAlive specifies whether keep alive messages are sent to the client.
+# See sshd(1) for detailed description of what this means.
+# Note that the client may also be sending keep alive messages to the server.
+KeepAlive yes
+
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
+GatewayPorts no
+X11Forwarding no
+X11UseLocalhost no
+#PermitTTY yes
+
+# Should sshd print the /etc/motd file and check for mail.
+# On Solaris it is assumed that the login shell will do these (eg /etc/profile).
+PrintMotd no
+
+#TCPKeepAlive yes
+#UseLogin no
+UsePrivilegeSeparation sandbox # Default for new installations.
+#PermitUserEnvironment no
+#Compression delayed
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+UseDNS no
+#PidFile /var/run/sshd.pid
+#MaxStartups 10:30:100
+#PermitTunnel no
+#ChrootDirectory none
+VersionAddendum All your SSH belong to us
+
+# override default of no subsystems
+Subsystem sftp internal-sftp
+
+# Enable Joyent smartlogin
+PubKeyPlugin libsmartsshd.so
