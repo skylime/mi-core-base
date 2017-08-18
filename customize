@@ -47,4 +47,11 @@ rm -rf /home/admin/.[^.]*
 
 echo "* Cleaning up."
 rm -rf /root/*
+
+# Provide workaround for /.zonecontrol/metadata.sock issue
+# https://github.com/joyent/smtools/issues/3
+gsed -i 's:^rm -f /.zonecontrol/metadata.sock$:rm -f /.zonecontrol/metadata.sock || true:g' \
+	/opt/local/bin/sm-prepare-image
+
+echo "* Prepare image"
 sm-prepare-image -y
