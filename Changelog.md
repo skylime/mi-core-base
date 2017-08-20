@@ -1,5 +1,24 @@
 # Changelog
 
+## 17.2.0
+
+### New
+
+- Version Bump to 17.2.0. [Thomas Merkel]
+- Switch to py35 version of certbot. [Thomas Merkel]
+- Add sshd_config with only valid options for OpenSSH. [Thomas Merkel]
+- Munin plugin version bump to 0.11 with new network stats. [Thomas
+  Merkel]
+- Nullmailer version bump to 2.0 for 2017Q2. [Thomas Merkel]
+
+### Fix
+
+- Add our own munin-node package and znapzend to fix known perl issues.
+  [Thomas Merkel]
+- Add sm-prepare-image workaround to fix issue on newer SmartOS
+  platform. [Thomas Merkel]
+- Provide empty file if addrconf is not set. [Thomas Merkel]
+
 ## 17.1.3
 
 ### New
