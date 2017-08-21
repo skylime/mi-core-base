@@ -26,4 +26,4 @@ grep
 # backup
 https://pkgsrc.smartos.skylime.net/skylime-extra/2017Q2/x86_64/znapzend-0.17.0nb1.tgz
 # letsencrypt
-https://pkgsrc.smartos.skylime.net/skylime-extra/2017Q2/x86_64/py35-certbot-0.15.0.tgz
+py35-certbot
