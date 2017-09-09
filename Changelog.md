@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.2.1
+
+### New
+
+- Update smartos-munin-plugins, cert_expire. [Thomas Merkel]
+- Switch to py35-certbot from the Joyent build. [Thomas Merkel]
+
 ## 17.2.0
 
 ### New
