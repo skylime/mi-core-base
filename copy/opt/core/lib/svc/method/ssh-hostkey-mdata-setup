@@ -12,7 +12,7 @@ if [[ ! "${SMF_METHOD}" == "start" ]]; then
 fi
 
 # Update mdata information from SSH host keys
-for key in dsa_key dsa_key.pub rsa_key rsa_key.pub; do
+for key in dsa_key dsa_key.pub rsa_key rsa_key.pub ecdsa_key ecdsa_key.pub ed25519_key ed25519_key.pub; do
 	# If mdata is set we update the host keys, else we will get the
 	# host keys from the filesystem and set the mdata information
 	if mdata-get ssh_host_${key} 2>/dev/null; then
