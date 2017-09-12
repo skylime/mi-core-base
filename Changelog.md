@@ -1,5 +1,11 @@
 # Changelog
 
+## 17.2.2
+
+### Fix
+
+- Add ssh host keys for ed25519 and ecdsa. [Thomas Merkel]
+
 ## 17.2.1
 
 ### New
