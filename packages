@@ -17,8 +17,6 @@ logcheck
 # colorlog
 ccze
 # tools
-coreutils
-findutils
 sudo
 gsed
 # grep required to work with sm- commands
