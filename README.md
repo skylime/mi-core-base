@@ -35,9 +35,9 @@ List of ip addresses of the munin master server that is allowed to connect. The 
 
 - `munin_master_allow`: ip addresses (alternative hostname) of the munin master node
 
-### postfix
+### nullmailer
 
-To have cron emails on errors we like to configure postfix as local smtp server.
+To have cron emails on errors we like to configure nullmailer as local smtp server.
 
 - `mail_smarthost`: hostname of remote smtp server
 - `mail_auth_user`: smtp username for authentication
