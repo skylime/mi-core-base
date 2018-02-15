@@ -41,7 +41,7 @@ for location in ${crt_locations}; do
 		# Parse certificate to receive CommonName
 		x509_subject=$(echo ${x509} | gsed 's/.*CN=\([^\ |,]*\).*/\1/')
 		# Receive expire unixtime
-		expire_unixtime=$(date --date="$(echo ${x509} | gsed 's/.*notAfter=\([^,]*\)\ .*/\1/')" +%s)
+		expire_unixtime=$(dateconv -i "%b %d %H:%M:%S %Y %Z" -f "%s" "$(echo ${x509} | gsed 's/.*notAfter=\([^,]*\)\ .*/\1/')")
 		# Receive expire datetime
 		expire_datetime=$(date +"%Y-%m-%d" -d "@${expire_unixtime}")
 
