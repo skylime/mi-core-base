@@ -1,5 +1,22 @@
 # Changelog
 
+## 17.4.0
+
+### New
+
+- Version Bump to 17.4.0. [Thomas Merkel]
+- Switch from gnudate to dateutils (for munin-plugins as well) [Thomas
+  Merkel]
+
+  Because we removed coreutils we need to switch to default tools and additional packages especially for date / dateconv.
+
+- Remove coreutils and findutils, because ls and chmod etc. do not
+  support ACLs in gnu-tools. [Thomas Merkel]
+
+### Fix
+
+- Fix readme because we use nullmailer. [Thomas Merkel]
+
 ## 17.2.2
 
 ### Fix
