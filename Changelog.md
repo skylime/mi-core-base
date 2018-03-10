@@ -1,5 +1,12 @@
 # Changelog
 
+## 17.4.1
+
+### Fix
+
+- Fix issue with date on illumos which do not support +14 days. [Thomas
+  Merkel]
+
 ## 17.4.0
 
 ### New
