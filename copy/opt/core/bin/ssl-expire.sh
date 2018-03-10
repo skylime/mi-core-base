@@ -18,8 +18,8 @@ crt_locations_ignores="/opt/local/etc/letsencrypt/archive"
 # Now
 today_unixtime=$(date +%s)
 
-# Warning trigger
-trigger_unixtime=$(date +%s -d "+14 days")
+# Warning trigger +14 days
+trigger_unixtime=$(($(date +%s) + (14*24*3600)))
 
 # Lookup
 for location in ${crt_locations}; do
@@ -43,7 +43,7 @@ for location in ${crt_locations}; do
 		# Receive expire unixtime
 		expire_unixtime=$(dateconv -i "%b %d %H:%M:%S %Y %Z" -f "%s" "$(echo ${x509} | gsed 's/.*notAfter=\([^,]*\)\ .*/\1/')")
 		# Receive expire datetime
-		expire_datetime=$(date +"%Y-%m-%d" -d "@${expire_unixtime}")
+		expire_datetime=$(dateconv -i "%s" -f "%Y-%m-%d" "@${expire_unixtime}")
 
 		# Expired
 		if [ ${today_unixtime} -gt ${expire_unixtime} ]; then
