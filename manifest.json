@@ -1,6 +1,6 @@
 {
 	"name":         "core-base",
-	"version":      "17.4.0",
+	"version":      "17.4.1",
 	"description":  "Base core.io image",
 	"organization": "SkyLime",
 	"brand":        "Instance",
