@@ -44,7 +44,7 @@ ssl() {
 	fi
 }
 
-if [[ ${#} -lt 4 ]]; then
+if [[ ${#} -lt 3 ]]; then
 	echo "${0} ssl_home mdata_var filename [service]"
 	echo 
 	echo "PARAMETER:"
