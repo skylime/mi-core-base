@@ -32,7 +32,7 @@ ssl() {
 			cat ${le_live}privkey.pem   > ${ssl_home}/${filename}.key
 			)
 			# Update renew-hook.sh
-			grep -q '^#!/usr/bin/env bash' || echo '#!/usr/bin/env bash' > ${le_home}renew-hook.sh
+			grep -q '^#!/usr/bin/env bash' ${le_home}renew-hook.sh || echo '#!/usr/bin/env bash' > ${le_home}renew-hook.sh
 			echo "cat ${le_live}fullchain.pem > ${ssl_home}/${filename}.crt" >> ${le_home}renew-hook.sh
 			echo "cat ${le_live}privkey.pem   > ${ssl_home}/${filename}.key" >> ${le_home}renew-hook.sh
 			[[ ! -z ${service} ]] && \
