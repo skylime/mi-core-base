@@ -7,7 +7,7 @@ ssl() {
 	local ssl_home=${1}
 	local mdata_var=${2}
 	local filename=${3}
-	local service=${4}
+	local service=${@:4}
 
 	mkdir -p "${ssl_home}"
 
@@ -45,17 +45,17 @@ ssl() {
 }
 
 if [[ ${#} -lt 3 ]]; then
-	echo "${0} ssl_home mdata_var filename [service]"
+	echo "${0} ssl_home mdata_var filename [services ...]"
 	echo 
 	echo "PARAMETER:"
 	echo "  ssl_home:  Full path to filename"
 	echo "  mdata_var: Metadata variable for lookup if exists"
 	echo "  filename:  SSL certificate and key filename"
-	echo "  service:   SMF service name"
+	echo "  service:   SMF services name"
 	echo
 	echo "EXAMPLE:"
 	echo "  ${0} /opt/local/etc/exim/ssl submission_ssl exim svc:/pkgsrc/exim:default"
 	exit 1
 fi
 
-ssl ${1} ${2} ${3} ${4}
+ssl ${1} ${2} ${3} ${@:4}
