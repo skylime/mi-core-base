@@ -1,5 +1,25 @@
 # Changelog
 
+## 17.4.2
+
+### New
+
+- Provide an ssl-generator.sh script. [Thomas Merkel]
+
+  Provide function to generate ssl certificates easily with mdata or let's encrypt. Restart services if needed and more.
+
+- Add .bashrc again for root user. [Thomas Merkel]
+
+### Changes
+
+- Remove support for one PEM file which contains cert and key. [Thomas
+  Merkel]
+
+### Fix
+
+- Add base64 because its required for spipe config scripts. [Thomas
+  Merkel]
+
 ## 17.4.1
 
 ### Fix
