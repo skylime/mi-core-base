@@ -39,6 +39,3 @@ openssl req -newkey rsa:2048 -keyout ${DESTINATION}/${FILENAME}.key \
 # Generate self signed ssl certificate from csr via OpenSSL
 openssl x509 -in ${DESTINATION}/${FILENAME}.csr -out ${DESTINATION}/${FILENAME}.crt -req \
              -signkey ${DESTINATION}/${FILENAME}.key -days 128
-
-# Create one PEM file which contains certificate and key
-cat ${DESTINATION}/${FILENAME}.crt ${DESTINATION}/${FILENAME}.key > ${DESTINATION}/${FILENAME}.pem
