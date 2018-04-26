@@ -21,8 +21,15 @@ ssl() {
 			openssl pkcs7 -print_certs -out "${ssl_home}/${filename}.crt"
 		)
 	else
+		# Verify if port 80, if true use let's encrypt with webroot configuration
+		local le_args=''
+		if ls /proc/ 2>/dev/null | while read id; do pfiles ${id} 2>/dev/null; done \
+			| grep -q "sockname: AF_INET.*port: 80"; then
+			le_args='-t webroot'
+		fi
+
 		# Try to generate let's encrypt ssl certificate for the hostname
-		if /opt/core/bin/ssl-letsencrypt.sh 1>/dev/null; then
+		if /opt/core/bin/ssl-letsencrypt.sh ${le_args} 1>/dev/null; then
 			local le_home='/opt/local/etc/letsencrypt/'
 			local le_live="${le_home}live/$(hostname)/"
 			# Workaround to copy correct files for ssl_home
