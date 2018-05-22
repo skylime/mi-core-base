@@ -1,5 +1,18 @@
 # Changelog
 
+## 18.1.0
+
+### New
+
+* Version bump to 18.1 with default python version 3.6. [Thomas Merkel]
+* Provide default logadm values for syslog information. [Thomas Merkel]
+  Add default policy for syslog files:
+
+  - rotate every day
+  - delete after 7 days
+
+* Support webroot with ssl-generate.sh. [Thomas Merkel]
+
 ## 17.4.2
 
 ### New
