@@ -42,6 +42,9 @@ curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGI
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}
 
+echo "* Remove unused logfiles"
+rm -f /var/log/courier.log
+
 echo "* Cleanup home/admin because of delegate dataset usage"
 rm -rf /home/admin/.[^.]*
 
