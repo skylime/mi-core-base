@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ksh93
 # Thomas Merkel <tm@core.io>
 # This script could run as cron to check all system certificates. It provides the option
 # to ignore files and folders, especially some Let's Encrypt account pem files.
@@ -16,10 +16,10 @@ crt_ignores="mozilla-rootcert-.* privkey.* .*-certbot.pem fullchain.pem chain.pe
 crt_locations_ignores="/opt/local/etc/letsencrypt/archive"
 
 # Now
-today_unixtime=$(date +%s)
+today_unixtime=$(printf "%(%s)T")
 
 # Warning trigger +14 days
-trigger_unixtime=$(($(date +%s) + (14*24*3600)))
+trigger_unixtime=$((${today_unixtime} + (14*24*3600)))
 
 # Lookup
 for location in ${crt_locations}; do
@@ -40,10 +40,10 @@ for location in ${crt_locations}; do
 		x509=$(openssl x509 -in ${crt} -noout -nameopt RFC2253 -subject -enddate -hash)
 		# Parse certificate to receive CommonName
 		x509_subject=$(echo ${x509} | gsed 's/.*CN=\([^\ |,]*\).*/\1/')
-		# Receive expire unixtime
-		expire_unixtime=$(dateconv -i "%b %d %H:%M:%S %Y %Z" -f "%s" "$(echo ${x509} | gsed 's/.*notAfter=\([^,]*\)\ .*/\1/')")
+		# Parse expire (M D H:M:S Y)
+		expire_unixtime=$(printf "%(%s)T" "$(echo ${x509} | gsed -n 's/.*notAfter=\([^,]*\)\ .*/\1/p')")
 		# Receive expire datetime
-		expire_datetime=$(dateconv -i "%s" -f "%Y-%m-%d" "@${expire_unixtime}")
+		expire_datetime=$(printf "%(%Y-%m-%d)T" "#${expire_unixtime}")
 
 		# Expired
 		if [ ${today_unixtime} -gt ${expire_unixtime} ]; then
