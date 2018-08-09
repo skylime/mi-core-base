@@ -1,5 +1,17 @@
 # Changelog
 
+## 18.2.0
+
+### New
+
+* Version bump to 18.2.0. [Thomas Merkel]
+
+### Changes
+
+* Switch to latest smartos-munin-plugins. [Thomas Merkel]
+* Switch from bash to ksh93 to use build-in printf as a dateutils
+  replacement. [Thomas Merkel]
+
 ## 18.1.0
 
 ### New
