@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+export PATH
+
+set -o errexit
+set -o xtrace
+
+. /lib/svc/share/smf_include.sh
+smf_is_globalzone && exit ${SMF_EXIT_OK}
+
+# Set basedir
+POSTINIT_INCLUDES=/opt/core/var/postinit/includes
+
+# This script should only run if
+#
+#  1) executed as SMF start method; and
+#  2) zoneinit is finished; and
+#  3) postinit is not done
+#
+# Otherwise, pretend success but do nothing
+
+if [[ ! "${SMF_METHOD}" == "start" ]] || \
+   [[ $(svcprop -p application/done zoneinit 2>/dev/null) =~ false ]] || \
+   [[ $(svcprop -p application/done postinit 2>/dev/null) =~ true ]]  || \
+      ! ls ${POSTINIT_INCLUDES}/*.sh >/dev/null 2>&1; then
+  exit ${SMF_EXIT_OK}
+fi
+
+function log {
+  local WHERE=$(basename ${INC-postinit})
+  echo "${WHERE}: $1"
+}
+
+function exit_handler {
+  local WHERE=$(basename ${INC-postinit})
+  local EXITCODE=${2:-95}
+
+  if [ ${EXITCODE} -gt 0 ]; then
+    echo "${WHERE}: $1 ${EXITCODE}"
+
+    # Status 95 tells the SMF restarter to fail fatally (not try again)
+    exit ${SMF_EXIT_ERR_FATAL}
+  fi
+}
+
+trap 'exit_handler "received exit status" $?' EXIT
+
+START_TIME=$(date +%s)
+log "(start)"
+
+# Pull in and execute all operations from the 'includes' directory
+for INC in ${POSTINIT_INCLUDES}/*.sh
+do
+  [ -f "${INC}" ] || continue
+  log "(start)"
+  source ${INC}
+done
+unset INC
+
+# Set application to done
+log "cleaning up"
+svccfg -s postinit 'setprop application/done = true'
+svcadm refresh postinit
+
+END_TIME=$(date +%s)
+RUN_TIME=$((END_TIME-START_TIME))
+if [ ${RUN_TIME} -gt 0 ]; then
+  log "total runtime ${RUN_TIME} seconds"
+fi
+
+# provisioner takes over
+log "(finish)"
+exit 0
