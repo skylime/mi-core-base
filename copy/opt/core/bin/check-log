@@ -19,7 +19,7 @@ if [[ ! -f ${file} ]]; then
 fi
 
 # Temporary files required
-tempfile="/tmp/$(basename ${file})"
+tempfile="/var/tmp/$(basename ${file})"
 touch "${tempfile}.current" "${tempfile}.last"
 
 # Lookup
