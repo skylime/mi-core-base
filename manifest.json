@@ -1,25 +1,67 @@
 {
-	"name":         "core-base",
-	"version":      "18.2.1",
-	"description":  "Base core.io image",
-	"organization": "SkyLime",
-	"brand":        "Instance",
-	"homepage":     "https://github.com/skylime/mi-core-base",
-	"base":         "7ba557f0-8144-11e8-9301-7f1e6f4e9a7c",
-	"customer_metadata": {
-		"admin_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the admin user"},
-		"root_authorized_keys": {"type": "text", "description": "SSH public authorized key(s) for the root user"},
-		"root_ssh_rsa":         {"type": "text", "description": "private SSH rsa key for root user"},
-		"root_ssh_rsa_pub":     {"type": "text", "description": "public SSH rsa key for root user (mostly not required)"},
-		"root_known_hosts":     {"type": "text", "description": "known_hosts file information for root user"},
-		"mail_smarthost":       {"type": "text", "description": "hostname of remote smtp server"},
-		"mail_auth_user":       {"type": "text", "description": "smtp username if authentication is required"},
-		"mail_auth_pass":       {"type": "text", "description": "smtp password"},
-		"mail_adminaddr":       {"type": "text", "description": "admin email address alias for all mails to root@localhost"},
-		"ssh_host_rsa_key":     {"type": "text", "description": "private SSH rsa key for the host daemon"},
-		"ssh_host_rsa_key.pub": {"type": "text", "description": "public SSH rsa key for the host daemon"},
-		"ssh_host_dsa_key":     {"type": "text", "description": "private SSH dsa key for the host daemon"},
-		"ssh_host_dsa_key.pub": {"type": "text", "description": "public SSH dsa key for the host daemon"},
-		"munin_master_allow":   {"type": "text", "description": "ip addresses (alternative hostname) of the munin master node"}
-	}
+  "name": "core-base",
+  "version": "18.3.0-882239e",
+  "description": "Base core.io image",
+  "organization": "SkyLime",
+  "brand": "Instance",
+  "homepage": "https://github.com/skylime/mi-core-base",
+  "base": "1ff4699a-c72c-11e8-9db3-53c41d809fff",
+  "customer_metadata": {
+    "admin_authorized_keys": {
+      "type": "text",
+      "description": "SSH public authorized key(s) for the admin user"
+    },
+    "root_authorized_keys": {
+      "type": "text",
+      "description": "SSH public authorized key(s) for the root user"
+    },
+    "root_ssh_rsa": {
+      "type": "text",
+      "description": "private SSH rsa key for root user"
+    },
+    "root_ssh_rsa_pub": {
+      "type": "text",
+      "description": "public SSH rsa key for root user (mostly not required)"
+    },
+    "root_known_hosts": {
+      "type": "text",
+      "description": "known_hosts file information for root user"
+    },
+    "mail_smarthost": {
+      "type": "text",
+      "description": "hostname of remote smtp server"
+    },
+    "mail_auth_user": {
+      "type": "text",
+      "description": "smtp username if authentication is required"
+    },
+    "mail_auth_pass": {
+      "type": "text",
+      "description": "smtp password"
+    },
+    "mail_adminaddr": {
+      "type": "text",
+      "description": "admin email address alias for all mails to root@localhost"
+    },
+    "ssh_host_rsa_key": {
+      "type": "text",
+      "description": "private SSH rsa key for the host daemon"
+    },
+    "ssh_host_rsa_key.pub": {
+      "type": "text",
+      "description": "public SSH rsa key for the host daemon"
+    },
+    "ssh_host_dsa_key": {
+      "type": "text",
+      "description": "private SSH dsa key for the host daemon"
+    },
+    "ssh_host_dsa_key.pub": {
+      "type": "text",
+      "description": "public SSH dsa key for the host daemon"
+    },
+    "munin_master_allow": {
+      "type": "text",
+      "description": "ip addresses (alternative hostname) of the munin master node"
+    }
+  }
 }

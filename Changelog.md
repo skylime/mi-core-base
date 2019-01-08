@@ -1,5 +1,18 @@
 # Changelog
 
+## 18.3.0
+
+### New
+
+* Provide new postinit feature to run provision tasks after zoneinit.
+  [Thomas Merkel]
+* Version bump to 18.3.0 minimal-64 [Thomas Merkel]
+
+### Changes
+
+* Remove mdata-setup support and use only existing zoneinit service.
+  [Thomas Merkel]
+
 ## 18.2.0
 
 ### New
