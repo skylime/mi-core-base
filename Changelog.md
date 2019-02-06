@@ -1,5 +1,12 @@
 # Changelog
 
+## 18.4.0
+
+### New
+
+* Version bump to 18.4.0. [Thomas Merkel]
+  Switching to SkyLime munin-node version which is only build with py37.
+
 ## 18.3.0
 
 ### New
