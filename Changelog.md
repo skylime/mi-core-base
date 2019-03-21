@@ -1,5 +1,11 @@
 # Changelog
 
+## 18.4.1
+
+### Fix
+
+* Provide fix for py37-certbot to use correct configuration directory. [Thomas Merkel]
+
 ## 18.4.0
 
 ### New
