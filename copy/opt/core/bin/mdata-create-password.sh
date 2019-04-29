@@ -12,6 +12,7 @@ usage() {
 
 	OPTIONS:
 	  -f           : Force insert also if variable exists
+	  -e           : Echo if it exists without error code
 	  -m MDATA_VAR : Create secret and store it in MDATA_VAR
 	  -s SECRET    : Provide own secret
 	EOF
@@ -35,11 +36,12 @@ mdata_put() {
 ##
 ## Options
 ##
-while getopts "m:s:fh" arg; do
+while getopts "m:s:feh" arg; do
 	case "${arg}" in
 		m) mdata_var=${OPTARG} ;;
 		s) secret=${OPTARG}    ;;
 		f) force=1             ;;
+		e) output=1            ;;
 		*) usage               ;;
 	esac
 done
@@ -58,8 +60,12 @@ shift $((OPTIND-1))
 if ! mdata-get ${mdata_var} >/dev/null 2>&1; then
 	mdata_put ${mdata_var} "${secret}"
 else
-	if [ -z ${force+x} ]; then
+	if [ ! -z ${output+x} ]; then
+		mdata-get ${mdata_var}
+	fi
+	if [ -n ${force+x} ]; then
+		mdata_put ${mdata_var} "${secret}"
+	elif [ -z ${output+x} ]; then
 		die "${mdata_var} already exists!"
 	fi
-	mdata_put ${mdata_var} "${secret}"
 fi
