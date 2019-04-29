@@ -1,5 +1,12 @@
 # Changelog
 
+## 18.4.2
+
+### New
+
+* Add script to add secrets to mdata variables. [Thomas Merkel]
+* Add the option to echo the variable if it exits. [Thomas Merkel]
+
 ## 18.4.1
 
 ### Fix
