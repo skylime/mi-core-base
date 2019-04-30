@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Restore /etc/motd if a clean file exists.
+
+[ -f /etc/motd.clean ] && \
+	mv /etc/motd.clean /etc/motd
