@@ -6,13 +6,13 @@
 ##
 usage() {
 	cat <<- EOF
-	${0} [-f] -m MDATA_VAR [-s SECRET]
+	${0} [-f|-q] -m MDATA_VAR [-s SECRET]
 	Store secret in mdata variable and output the generated secret
 	if not provided.
 
 	OPTIONS:
 	  -f           : Force insert also if variable exists
-	  -e           : Echo if it exists without error code
+	  -q           : Quiet, do not output any secret
 	  -m MDATA_VAR : Create secret and store it in MDATA_VAR
 	  -s SECRET    : Provide own secret
 	EOF
@@ -30,18 +30,17 @@ mdata_put() {
 	if ! mdata-put ${mdata_var} "${secret}" >/dev/null 2>&1; then
 		die "Could not store secret in variable: ${mdata_var}"
 	fi
-	echo "${secret}"
 }
 
 ##
 ## Options
 ##
-while getopts "m:s:feh" arg; do
+while getopts "m:s:fqh" arg; do
 	case "${arg}" in
 		m) mdata_var=${OPTARG} ;;
 		s) secret=${OPTARG}    ;;
 		f) force=1             ;;
-		e) output=1            ;;
+		q) quiet=1            ;;
 		*) usage               ;;
 	esac
 done
@@ -57,15 +56,14 @@ shift $((OPTIND-1))
 	secret=$(LC_ALL=C tr -cd '[:alnum:]' < /dev/urandom | head -c64)
 
 # Check if mdata variable is already set
-if ! mdata-get ${mdata_var} >/dev/null 2>&1; then
+if ! mdata-get ${mdata_var} >/dev/null 2>&1 || [ -n "${force}" ]; then
+	# No mdata variable exists or force is used
 	mdata_put ${mdata_var} "${secret}"
 else
-	if [ ! -z ${output+x} ]; then
-		mdata-get ${mdata_var}
-	fi
-	if [ -n ${force+x} ]; then
-		mdata_put ${mdata_var} "${secret}"
-	elif [ -z ${output+x} ]; then
-		die "${mdata_var} already exists!"
-	fi
+	[ -n "${quiet}" ] && exit 3
+fi
+
+# No output if quiet is set, exit code above will be used
+if [ ! -n "${quiet}" ]; then
+	mdata-get ${mdata_var}
 fi
