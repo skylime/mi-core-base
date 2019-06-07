@@ -24,7 +24,7 @@ ssl() {
 		# Verify if port 80, if true use let's encrypt with webroot configuration
 		local le_args=''
 		if ls /proc/ 2>/dev/null | while read id; do pfiles ${id} 2>/dev/null; done \
-			| grep -q "sockname: AF_INET.*port: 80"; then
+			| grep -q "[s]ockname: AF_INET.*port: 80"; then
 			le_args='-t webroot'
 		fi
 
