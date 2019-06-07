@@ -1,5 +1,17 @@
 # Changelog
 
+## 18.4.3
+
+### New
+
+* Add new LE renew script for cronjob. [Thomas Merkel]
+* Add simple motd-cleanup script. [Thomas Merkel]
+
+### Fix
+
+* Fix LE webroot / http port lookup. [Thomas Merkel]
+* Fix script for mdata-create-password, provide other options to be quiet if only check is required. [Thomas Merkel]
+
 ## 18.4.2
 
 ### New
