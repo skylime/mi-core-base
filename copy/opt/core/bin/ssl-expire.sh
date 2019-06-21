@@ -10,7 +10,7 @@ PATH=/opt/local/bin:${PATH}
 crt_locations=${crt_locations-'/opt/local/etc'}
 
 # Ignore some system CAs and special files which are no certificate files
-crt_ignores="mozilla-rootcert-.* privkey.* .*-certbot.pem fullchain.pem chain.pem"
+crt_ignores="mozilla-rootcert-.* privkey.* .*-certbot.pem fullchain.pem chain.pem dh.pem"
 
 # Ignore Let's Encrypt archive folder because we only check live files
 crt_locations_ignores="/opt/local/etc/letsencrypt/archive"
