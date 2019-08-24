@@ -6,6 +6,9 @@ function install_skel() {
 	# If first creation is a success copy all data from skel
 	cp -r /etc/skel/. /home/admin
 
+	# Update PATH for our personal core utils
+	gsed -i 's|^PATH=\(.*\)|PATH=\1:/opt/core/bin|g' /home/admin/.profile
+
 	# Fix permissions for home folder
 	chmod 700 /home/admin
 	chown -R admin:staff /home/admin
