@@ -1,5 +1,15 @@
 # Changelog
 
+## 18.4.4
+
+### New
+
+* Add support for core scripts in admin path. [Thomas Merkel]
+
+### Fix
+
+* Ignore dh.pem files. [Thomas Merkel]
+
 ## 18.4.3
 
 ### New
