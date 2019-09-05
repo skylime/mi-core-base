@@ -5,7 +5,7 @@ set -o errexit
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
 # Munin plugins
-MUNIN_PLUGIN_VERSION='0.15'
+MUNIN_PLUGIN_VERSION='0.16'
 MUNIN_PLUGINS="
 	cert_expire
 	cputime
@@ -24,6 +24,8 @@ MUNIN_PLUGINS="
 	smf
 	tcp
 	udp
+	ip_version
+	nullmailer
 "
 
 echo "* Use the skylime pkgsrc mirror"
