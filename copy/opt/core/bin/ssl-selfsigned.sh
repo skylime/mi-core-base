@@ -25,11 +25,14 @@ while getopts ":d:c:f:" opt; do
 	esac
 done
 
-# Verify if folder exists
-if [[ ! -d "$DESTINATION" ]]; then
-	echo "Error: The ${DESTINATION} doesn't exists, please create!"
+# Verify that destination as option
+if [[ -z "${DESTINATION}" ]]; then
+	echo 'ERROR: -d DESTINATION is an required option!'
 	exit 2
 fi
+
+# Create folder if not exists
+mkdir -p "${DESTINATION}"
 
 # Generate key and csr via OpenSSL
 openssl req -newkey rsa:2048 -keyout ${DESTINATION}/${FILENAME}.key \
