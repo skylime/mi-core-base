@@ -1,8 +1,8 @@
 # for not vim users
 nano
 # munin-node
-https://pkgsrc.smartos.skylime.net/skylime-extra/2018Q4/x86_64/munin-common-2.0.44.tgz
-https://pkgsrc.smartos.skylime.net/skylime-extra/2018Q4/x86_64/munin-node-2.0.44.tgz
+munin-common
+munin-node
 p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
@@ -14,15 +14,14 @@ spiped
 dtracetools
 # logtail
 logcheck
-# colorlog
-ccze
 # tools
 sudo
 gsed
 base64
+mtr
 # grep required to work with sm- commands
 grep
 # backup
 znapzend
 # letsencrypt
-https://pkgsrc.smartos.skylime.net/skylime-extra/2018Q4/x86_64/py37-certbot-0.30.0nb1.tgz
+py37-certbot
