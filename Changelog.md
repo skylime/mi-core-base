@@ -1,5 +1,17 @@
 # Changelog
 
+## 19.3.0
+
+### New
+
+* Add mtr as default package. [Thomas Merkel]
+* Switch from default ssh port 22 to 10110. [Thomas Merkel]
+* Update to latest munin plugins (v0.16) and enable nullmailer and ip_version. [Thomas Merkel]
+
+### Fix
+
+* ssl-selfsigned.sh, create folder if it doesn't exists. [Thomas Merkel]
+
 ## 18.4.4
 
 ### New
