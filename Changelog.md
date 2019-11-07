@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.3.1
+
+### Fix
+
+* Fix py-certbot dependecy issue, upgrade to latest version in netbsd/2019Q3. [Thomas Merkel]
+
 ## 19.3.0
 
 ### New
