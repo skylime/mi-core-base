@@ -24,4 +24,4 @@ grep
 # backup
 znapzend
 # letsencrypt
-py37-certbot
+https://pkgsrc.smartos.skylime.net/skylime-extra/2019Q3/x86_64/py37-certbot-0.38.0nb3.tgz
