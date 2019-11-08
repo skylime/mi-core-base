@@ -5,7 +5,7 @@ set -o errexit
 PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
 
 # Munin plugins
-MUNIN_PLUGIN_VERSION='0.16'
+MUNIN_PLUGIN_VERSION='0.17'
 MUNIN_PLUGINS="
 	cert_expire
 	cputime
