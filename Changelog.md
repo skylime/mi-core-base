@@ -1,5 +1,11 @@
 # Changelog
 
+## 19.3.2
+
+### Fix
+
+* Update munin plugins to fix nullmailer script typo. [Thomas Merkel]
+
 ## 19.3.1
 
 ### Fix
