@@ -21,6 +21,7 @@ ssl() {
 			openssl pkcs7 -print_certs -out "${ssl_home}/${filename}.crt"
 		)
 	else
+		hostname=$(hostname)
 		# Verify if port 80, if true use let's encrypt with webroot configuration
 		local le_args=''
 		if ls /proc/ 2>/dev/null | while read id; do pfiles ${id} 2>/dev/null; done \
@@ -28,10 +29,19 @@ ssl() {
 			le_args='-t webroot'
 		fi
 
+		# Support Alt-SANs if a special mdata-variable exists which ends
+		# with _hostlist
+		if mdata-get ${mdata_var}_hostlist 1>/dev/null 2>&1; then
+			# Make it comma seperated without spaces
+			hostlist=$(mdata-get ${mdata_var}_hostlist | tr -d ' ')
+			le_args="${le_args} -d ${hostlist}"
+			hostname=$(echo ${hostlist} | awk -F, '{ print $1 }')
+		fi
+
 		# Try to generate let's encrypt ssl certificate for the hostname
 		if /opt/core/bin/ssl-letsencrypt.sh ${le_args} 1>/dev/null; then
 			local le_home='/opt/local/etc/letsencrypt/'
-			local le_live="${le_home}live/$(hostname)/"
+			local le_live="${le_home}live/${hostname}/"
 			# Workaround to copy correct files for ssl_home
 			(
 			umask 0027
