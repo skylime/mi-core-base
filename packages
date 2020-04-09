@@ -1,3 +1,5 @@
+# bash testing framework
+bats
 # for not vim users
 nano
 # munin-node
@@ -24,4 +26,4 @@ grep
 # backup
 znapzend
 # letsencrypt
-https://pkgsrc.smartos.skylime.net/skylime-extra/2019Q3/x86_64/py37-certbot-0.38.0nb3.tgz
+py37-certbot
