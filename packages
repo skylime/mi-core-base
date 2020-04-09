@@ -3,8 +3,8 @@ bats
 # for not vim users
 nano
 # munin-node
-munin-common
-munin-node
+https://pkgsrc.smartos.skylime.net/skylime-extra/2020Q1/x86_64/munin-common-2.0.56.tgz
+https://pkgsrc.smartos.skylime.net/skylime-extra/2020Q1/x86_64/munin-node-2.0.56.tgz
 p5-Net-CIDR
 p5-LWP-UserAgent-Determined
 p5-Switch
