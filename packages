@@ -21,6 +21,7 @@ sudo
 gsed
 base64
 mtr
+unzip
 # grep required to work with sm- commands
 grep
 # backup
