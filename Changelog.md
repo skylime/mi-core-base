@@ -1,5 +1,13 @@
 # Changelog
 
+## 20.1.0
+
+### New
+
+* Default SSH port changed from 22 to 10110. [Thomas Merkel]
+* Add unzip package. [Thomas Merkel]
+* Add Let's Encrypt hostlist support for multiple SANs. [Thomas Merkel]
+
 ## 19.3.2
 
 ### Fix
