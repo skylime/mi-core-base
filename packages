@@ -1,5 +1,7 @@
 # bash testing framework
 bats
+# for better vim support
+vim
 # for not vim users
 nano
 # munin-node
