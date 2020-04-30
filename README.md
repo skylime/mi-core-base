@@ -53,3 +53,8 @@ Configure ssh public and private key pairs for the host daemon via `mdata`.
 - `ssh_host_dsa_key`:     private SSH dsa key
 - `ssh_host_dsa_key.pub`: public SSH dsa key
 
+### sudo
+
+Add existing users to a sysadmin group to allow sudo without any password.
+
+- `sudo_sysadmin_members`: space seperated list of users
