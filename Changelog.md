@@ -1,5 +1,12 @@
 # Changelog
 
+## 20.1.1
+
+### New
+
+* Add support to add users to sysadmin group. [Thomas Merkel]
+* Add vim from pkgsrc, for newer version and better support. [Thomas Merkel]
+
 ## 20.1.0
 
 ### New
