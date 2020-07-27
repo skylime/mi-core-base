@@ -1,5 +1,11 @@
 # Changelog
 
+## 20.2.0
+
+### New
+
+* Version bump to 2020Q1 release. [Thomas Merkel]
+
 ## 20.1.1
 
 ### New
