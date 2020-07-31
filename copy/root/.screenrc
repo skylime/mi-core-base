@@ -1,0 +1,12 @@
+# Minimal screenrc to provide a status bar and a scrollback buffer
+
+# Big scrollback
+defscrollback 5000
+
+# No annoying startup message
+startup_message off
+
+# Display the status line at the bottom
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{= kg}[ %{G}%H %{g}] %{=}%-w%{+b w}%n %t%{-b w}%+w %{= kG}%-=%D %m/%d/%y | %C:%s %A | %1`%{-}"
