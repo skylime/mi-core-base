@@ -35,12 +35,13 @@ mdata_put() {
 ##
 ## Options
 ##
-while getopts "m:s:fqh" arg; do
+while getopts "l:m:s:fqh" arg; do
 	case "${arg}" in
+		l) length=${OPTARG}    ;;
 		m) mdata_var=${OPTARG} ;;
 		s) secret=${OPTARG}    ;;
 		f) force=1             ;;
-		q) quiet=1            ;;
+		q) quiet=1             ;;
 		*) usage               ;;
 	esac
 done
@@ -53,7 +54,7 @@ shift $((OPTIND-1))
 ##
 # Generate secret if not provided
 [ -z ${secret+x} ] && \
-	secret=$(LC_ALL=C tr -cd '[:alnum:]' < /dev/urandom | head -c64)
+	secret=$(LC_ALL=C tr -cd '[:alnum:]' < /dev/urandom | head -c${length-64})
 
 # Check if mdata variable is already set
 if ! mdata-get ${mdata_var} >/dev/null 2>&1 || [ -n "${force}" ]; then
