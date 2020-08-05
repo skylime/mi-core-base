@@ -6,7 +6,7 @@
 ##
 usage() {
 	cat <<- EOF
-	${0} [-f|-q] -m MDATA_VAR [-s SECRET]
+	${0} [-f|-q] -m MDATA_VAR [-s SECRET] [-l LENGTH]
 	Store secret in mdata variable and output the generated secret
 	if not provided.
 
@@ -15,6 +15,7 @@ usage() {
 	  -q           : Quiet, do not output any secret
 	  -m MDATA_VAR : Create secret and store it in MDATA_VAR
 	  -s SECRET    : Provide own secret
+	  -l LENGTH    : Password length (default 64)
 	EOF
 	exit 1
 }
