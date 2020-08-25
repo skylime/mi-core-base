@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # create cronjob for ssl-expire script
 CRON='0 9 * * 1 /opt/core/bin/ssl-expire.sh
 15 * * * * /opt/core/bin/check-log /var/adm/messages "(znapzend.*ERROR)"

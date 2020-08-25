@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Configure ssh public and private key for root user in mdata variable
 
 if mdata-get root_ssh_rsa 1>/dev/null 2>&1; then

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Configure default logadm rotation values
 
 logadm -w '/var/log/authlog'              -A 7d -p 1d -a 'kill -HUP `cat /var/run/*syslog*.pid`'

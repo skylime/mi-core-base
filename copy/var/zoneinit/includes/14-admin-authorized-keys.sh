@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Configure admin ssh authorized_keys file if available via mdata
 
 if mdata-get admin_authorized_keys 1>/dev/null 2>&1; then

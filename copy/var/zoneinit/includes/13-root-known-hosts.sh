@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Configure known_hosts for root user in mdata variable
 
 if mdata-get root_known_hosts 1>/dev/null 2>&1; then

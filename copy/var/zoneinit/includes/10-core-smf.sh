@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This script load all SMF manifests from /opt/core/lib/svc/manifest
 
 CORE_SVC_DIR='/opt/core/lib/svc/manifest/'

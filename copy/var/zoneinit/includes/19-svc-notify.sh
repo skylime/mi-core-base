@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # svc notify
 # Enable notification by email for all services
 
