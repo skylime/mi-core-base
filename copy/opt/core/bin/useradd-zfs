@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Workaround to manage zfs datasets for user home folder, wrapper for useradd.
+# Required because "-z" only works if the folder above the home folder is
+# mounted via zfs.
+
+set -e
+
+# Parameters
+while getopts "md:g:" OPTION; do
+	case ${OPTION} in
+		m) CREATE_HOME=1      ;;
+		g) GROUP=${OPTARG}    ;;
+		d) HOME_DIR=${OPTARG} ;;
+		*) ;;
+	esac
+done
+
+ARGS=${*}
+USER=${*: -1}
+
+# Defaults
+DEFAULT_HOME=/home/${USER}
+DEFAULT_GROUP=other
+
+# Home directory handling
+if [ -n "${CREATE_HOME}" ]; then
+	UUID=$(mdata-get sdc:uuid)
+	DDS=zones/${UUID}/data
+
+	if zfs list "${DDS}" >/dev/null 2>&1; then
+		ARGS=${ARGS//-m /}
+		if [ -z "${HOME_DIR}" ]; then
+			ARGS="-d ${HOME_DIR-$DEFAULT_HOME} ${ARGS}"
+		fi
+
+		zfs create -p "${DDS}${HOME_DIR-$DEFAULT_HOME}" || true
+		zfs set mountpoint="${HOME_DIR-$DEFAULT_HOME}" "${DDS}${HOME_DIR-$DEFAULT_HOME}"
+	fi
+fi
+
+# Call useradd
+useradd ${ARGS}
+chown ${USER}:${GROUP-$DEFAULT_GROUP} ${HOME_DIR-$DEFAULT_HOME}
