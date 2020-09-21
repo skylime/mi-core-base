@@ -1,5 +1,27 @@
 # Changelog
 
+## 20.2.1
+
+### New
+
+* Support --debug for ssl-letsencrypt-renew.sh to receive some additional information. [Thomas Merkel]
+* Add first version of useradd-zfs script, to handle user datasets on reprovision. [Thomas Merkel]
+* Add postinit script for personal / admin user init.sh. [Thomas Merkel]
+* Add lenght options to generate passwords. [Thomas Merkel]
+* Add minimal screenrc. [Thomas Merkel]
+
+### Fix
+
+* Switch to usr/bin/env bash, to find always correct bash version. [Thomas Merkel]
+
+  Add executable flag, so it's easier to run a script later if needed
+
+### Other
+
+* Use tmp in var for check-log script [jfqd]
+* Secure nullmailer remotes config file. [Thomas Merkel]
+* Add documentation for mdata-create-password. [Thomas Merkel]
+
 ## 20.2.0
 
 ### New
