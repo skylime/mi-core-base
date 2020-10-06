@@ -7,11 +7,17 @@ PATH=/usr/local/sbin:/usr/local/bin:/opt/local/sbin:/opt/local/bin:/usr/sbin:/us
 # Parameters to provide
 file="${1}"
 lookup=${2-"error"}
+minimal=${3-'1'}
 lines=5
 
 # Verify parameters and file
 if [[ -z "${file}" ]]; then
-	echo "${0} [file] [lookup]"
+	echo "${0} [file] [lookup] [minimal]"
+	echo
+	echo "OPTIONS:"
+	echo "  file    : path to the filename"
+	echo "  lookup  : regex lookup in file (default: error)"
+	echo "  minimal : number of lines before error reported (default: 1)"
 	exit 1
 fi
 if [[ ! -f ${file} ]]; then
@@ -24,7 +30,11 @@ touch "${tempfile}.current" "${tempfile}.last"
 
 # Lookup
 grep -E "${lookup}" "${file}" | tail -n${lines} > "${tempfile}.current"
-if ! diff "${tempfile}.last" "${tempfile}.current" >/dev/null 2>&1; then
-	cat "${tempfile}.current" 1>&2
+
+if (( $(wc -l < "${tempfile}.current") >= minimal )); then
+
+	if ! diff "${tempfile}.last" "${tempfile}.current" >/dev/null 2>&1; then
+		cat "${tempfile}.current" 1>&2
+	fi
 fi
 cat "${tempfile}.current" > "${tempfile}.last"
