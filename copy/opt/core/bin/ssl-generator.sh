@@ -48,12 +48,13 @@ ssl() {
 			cat ${le_live}fullchain.pem > ${ssl_home}/${filename}.crt
 			cat ${le_live}privkey.pem   > ${ssl_home}/${filename}.key
 			)
-			# Update renew-hook.sh
-			grep -q '^#!/usr/bin/env bash' ${le_home}renew-hook.sh || echo '#!/usr/bin/env bash' > ${le_home}renew-hook.sh
-			echo "cat ${le_live}fullchain.pem > ${ssl_home}/${filename}.crt" >> ${le_home}renew-hook.sh
-			echo "cat ${le_live}privkey.pem   > ${ssl_home}/${filename}.key" >> ${le_home}renew-hook.sh
+			# Create hooks/renew/${filename}.sh
+			echo '#!/usr/bin/env bash'                                       >  ${le_home}/renewal-hooks/deploy/${filename}.sh
+			echo "cat ${le_live}fullchain.pem > ${ssl_home}/${filename}.crt" >> ${le_home}/renewal-hooks/deploy/${filename}.sh
+			echo "cat ${le_live}privkey.pem   > ${ssl_home}/${filename}.key" >> ${le_home}/renewal-hooks/deploy/${filename}.sh
 			[[ ! -z ${service} ]] && \
-				echo "svcadm restart ${service}" >> ${le_home}renew-hook.sh
+				echo "svcadm restart ${service}" >> ${le_home}/renewal-hooks/deploy/${filename}.sh
+			chmod 750 ${le_home}/renewal-hooks/deploy/${filename}.sh
 		else
 			# Fallback to selfsigned ssl certificates
 			/opt/core/bin/ssl-selfsigned.sh -d ${ssl_home} -f ${filename}
