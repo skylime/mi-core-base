@@ -1,5 +1,17 @@
 # Changelog
 
+## 20.3.0
+
+### New
+
+* Check-log: support lines when error should be reported. [Thomas Merkel]
+* Version bump to 2020Q3 pkgsrc release. [Thomas Merkel]
+* Let's Encrypt use renewal-hooks/deploy as replacement renew-hook parameter. [Thomas Merkel]
+
+### Other
+
+* Report znapzend errors after 2 errors a day. [Thomas Merkel]
+
 ## 20.2.1
 
 ### New
