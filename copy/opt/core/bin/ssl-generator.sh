@@ -34,7 +34,7 @@ ssl() {
 		if mdata-get ${mdata_var}_hostlist 1>/dev/null 2>&1; then
 			# Make it comma seperated without spaces
 			hostlist=$(mdata-get ${mdata_var}_hostlist | tr -d ' ')
-			le_args="${le_args} -d ${hostlist}"
+			le_args="${le_args} -c ${hostlist}"
 			hostname=$(echo ${hostlist} | awk -F, '{ print $1 }')
 		fi
 
