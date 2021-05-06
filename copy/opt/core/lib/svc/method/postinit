@@ -59,7 +59,9 @@ done
 unset INC
 
 # Set application to done
-# via var/postinit/includes/999-cleanup.sh
+log "cleaning up"
+svccfg -s postinit 'setprop application/done = true'
+svcadm refresh postinit
 
 END_TIME=$(date +%s)
 RUN_TIME=$((END_TIME-START_TIME))
