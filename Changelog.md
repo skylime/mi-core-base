@@ -1,5 +1,22 @@
 # Changelog
 
+## (unreleased)
+
+### New
+
+* Version bump to 2020Q4. [Thomas Merkel]
+* Switch to python 3.8 certbot version. [Thomas Merkel]
+* Send Email for admin users. [Thomas Merkel]
+
+### Fix
+
+* Fix ssl-generator hostlist for Lets Encrypt. [Thomas Merkel]
+
+### Other
+
+* Reset postinit for re-provision. [Thomas Merkel]
+* Update LICENSE date. [Thomas Merkel]
+
 ## 20.3.0
 
 ### New
