@@ -1,5 +1,9 @@
 # Minimal screenrc to provide a status bar and a scrollback buffer
 
+# Avoid close on ctrl+c (or ctrl+d)
+zombie ^D^C
+escape ^Aa
+
 # Big scrollback
 defscrollback 5000
 
