@@ -6,6 +6,10 @@ defscrollback 5000
 # No annoying startup message
 startup_message off
 
+# Bind F5 F6 to previous and next screen window
+bindkey -k k5 prev
+bindkey -k k6 next
+
 # Display the status line at the bottom
 hardstatus on
 hardstatus alwayslastline
