@@ -1,0 +1,3 @@
+[nullmailer]
+  env.mails_warning 10
+  env.mails_critical 25
