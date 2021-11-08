@@ -11,8 +11,8 @@ ZNAPZEND_DST_PLAN=$(mdata-get znapzend_dst_plan 2>/dev/null ||\
 if ZNAPZEND_DST=$(mdata-get znapzend_dst 2>/dev/null); then
 	# Verify requirements (root id_rsa, known_hosts)
 	[ ! -f /root/.ssh/id_rsa ] && exit 0
-	ZNAPZEND_DST_HOST=$(echo "${ZNAPZEND_DST_HOST}" | sed -n 's/\(.*@\)\?\(.*\):.*/\2/p')
-	if ! grep -q "${ZNAPZEND_DST_HOST}" /root/.ssh/known_hosts; then
+	ZNAPZEND_DST_HOST=$(echo "${ZNAPZEND_DST}" | sed -n 's/\(.*@\)\?\(.*\):.*/\2/p')
+	if ! grep -q "${ZNAPZEND_DST_HOST}" /root/.ssh/known_hosts &>/dev/null; then
 		(return 0 2>/dev/null) && exit 0
 		# If not sourced try to receive remote host key
 		ssh-keyscan "${ZNAPZEND_DST_HOST}" >> /root/.ssh/known_hosts
