@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Helper script to generate root ssh private, public key pair and add the
+# information to mdata variables.
+
+# Default key file (and format)
+ID_RSA="$HOME/.ssh/id_rsa"
+
+# Create .ssh folder by default
+mkdir -p "${HOME}/.ssh"
+
+# Fail if key does already exists
+if ! echo n | ssh-keygen -f "${ID_RSA}" -N '' &>/dev/null; then
+	echo "ERROR: ${ID_RSA} already exists. Nothing changed!"
+	exit 1
+fi
+
+cat "${ID_RSA}"     | mdata-put root_ssh_rsa
+cat "${ID_RSA}.pub" | mdata-put root_ssh_rsa.pub
