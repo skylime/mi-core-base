@@ -2,8 +2,9 @@
 # Helper script to generate root ssh private, public key pair and add the
 # information to mdata variables.
 
-# Default key file (and format)
-ID_RSA="$HOME/.ssh/id_rsa"
+# Current user and default key file (and format)
+USER="${USER-$(id -u -n)}"
+ID_RSA="${HOME}/.ssh/id_rsa"
 
 # Create .ssh folder by default
 mkdir -p "${HOME}/.ssh"
@@ -14,5 +15,6 @@ if ! echo n | ssh-keygen -f "${ID_RSA}" -N '' &>/dev/null; then
 	exit 1
 fi
 
-cat "${ID_RSA}"     | mdata-put root_ssh_rsa
-cat "${ID_RSA}.pub" | mdata-put root_ssh_rsa.pub
+# Put information into mdata variables
+mdata-put "${USER}_ssh_rsa"     < "${ID_RSA}"
+mdata-put "${USER}_ssh_rsa.pub" < "${ID_RSA}.pub"
