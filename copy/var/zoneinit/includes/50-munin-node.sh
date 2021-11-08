@@ -18,7 +18,16 @@ if MUNIN_TLS=$(mdata-get munin_tls 2>/dev/null); then
 		echo ${MUNIN_TLS} > ${MUNIN_DIR}/ssl/munin.pem
 		openssl pkey -in "${MUNIN_DIR}/ssl/munin.pem" -out "${MUNIN_DIR}/ssl/munin.key"
 		openssl crl2pkcs7 -nocrl -certfile "${MUNIN_DIR}/ssl/munin.pem" | \
-			openssl pkcs7 -print_certs -out "${MUNIN_DIR}/ssl/munin.crt"
+			openssl pkcs7 -print_certs -out "${MUNIN_DIR}/ssl/fullchain.pem"
+		# 0 = server_cert; 1..x = ca, ica, ...
+		awk -v MUNIN_DIR="${MUNIN_DIR}" '
+			BEGIN { n=0 }
+			split_after == 1 { n++; split_after=0 }
+			/-----END CERTIFICATE-----/ { split_after=1 }
+			{ print >> ( MUNIN_DIR"/ssl/munin-individual-"n".pem" ) }' < ${MUNIN_DIR}/ssl/fullchain.pem
+		mv  "${MUNIN_DIR}/ssl/munin-individual-0.pem"   "${MUNIN_DIR}/ssl/munin.crt"
+		cat "${MUNIN_DIR}/ssl/munin-individual-*.pem" > "${MUNIN_DIR}/ssl/ca.crt"
+		rm  "${MUNIN_DIR}/ssl/*.pem"
 	)
 	cat <<-EOF > ${MUNIN_CONF}
 	# mdata-get munin_tls (certificate)
