@@ -15,6 +15,9 @@ if ! echo n | ssh-keygen -f "${ID_RSA}" -N '' &>/dev/null; then
 	exit 1
 fi
 
+# Try to use sudo for non root user
+[[ "${USER}" == "root" ]] && SUDO="sudo"
+
 # Put information into mdata variables
-mdata-put "${USER}_ssh_rsa"     < "${ID_RSA}"
-mdata-put "${USER}_ssh_rsa.pub" < "${ID_RSA}.pub"
+${SUDO} mdata-put "${USER}_ssh_rsa"     < "${ID_RSA}"
+${SUDO} mdata-put "${USER}_ssh_rsa.pub" < "${ID_RSA}.pub"
