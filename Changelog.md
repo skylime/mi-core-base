@@ -1,5 +1,26 @@
 # Changelog
 
+## 21.4.0
+
+### New
+
+* Version bump to 2021Q4 [Thomas Merkel]
+* Support munin with tls authentication and security [Thomas Merkel]
+* Add shell script to generate SSH private, public key pair [Thomas Merkel]
+* Add munin nullmailer warning and critical level [Thomas Merkel]
+* Provide new mdata variable for znapzend_dst to send remote backups easily [Thomas Merkel]
+
+### Fix
+
+* Provide workaround for screen close on ctrl+c [Thomas Merkel]
+* Additional keys (F5, F6) for screen prev and next session (#3) [sk1ll10]
+* Rename script because it's not only for root, support sudo [Thomas Merkel]
+
+### Other
+
+* Install v0.18 SmartOS Munin Plugins [Thomas Merkel]
+* Switch to py39-certbot because of new default python version [Thomas Merkel]
+
 ## 20.4.0
 
 ### New
