@@ -1,11 +1,11 @@
 {
   "name": "core-base",
-  "version": "20.4.1",
+  "version": "21.4.0",
   "description": "Base core.io image",
   "organization": "SkyLime",
   "brand": "Instance",
   "homepage": "https://github.com/skylime/mi-core-base",
-  "base": "800db35c-5408-11eb-9792-872f658e7911",
+  "base": "a7199134-7e94-11ec-be67-db6f482136c2",
   "customer_metadata": {
     "admin_authorized_keys": {
       "type": "text",
