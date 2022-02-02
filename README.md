@@ -58,3 +58,10 @@ Configure ssh public and private key pairs for the host daemon via `mdata`.
 Add existing users to a sysadmin group to allow sudo without any password.
 
 - `sudo_sysadmin_members`: space seperated list of users
+
+### backup / znapzend
+
+Configure remote backup destination and plan for znapzend.
+
+- `znapzend_dst_plan`: destination plan in the znapzend format
+- `znapzend_dst`: destination server
