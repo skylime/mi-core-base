@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<!DOCTYPE service_bundle SYSTEM '/usr/share/lib/xml/dtd/service_bundle.dtd.1'>
+<service_bundle type='manifest' name='export'>
+  <service name='pkgsrc/nullmailer' type='service' version='0'>
+    <create_default_instance enabled='false'/>
+    <dependency name='fs-root' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/system/filesystem/root'/>
+    </dependency>
+    <dependency name='network-service' grouping='require_all' restart_on='none' type='service'>
+      <service_fmri value='svc:/network/service'/>
+    </dependency>
+    <method_context working_directory='/tmp'>
+      <method_credential group='nullmail' user='nullmail'/>
+    </method_context>
+    <exec_method name='start' type='method' exec='/opt/local/libexec/nullmailer/nullmailer-send | logger -t nullmailer -p mail.info' timeout_seconds='20'/>
+    <exec_method name='stop' type='method' exec=':kill' timeout_seconds='60'/>
+    <property_group name='startd' type='framework'>
+      <propval name='duration' type='astring' value='child'/>
+      <propval name='ignore_error' type='astring' value='core,signal'/>
+    </property_group>
+    <template>
+      <common_name>
+        <loctext xml:lang='C'>Simple relay-only mail transport agent</loctext>
+      </common_name>
+      <documentation>
+        <manpage title='nullmailer' section='7' manpath='/opt/local/man'/>
+      </documentation>
+    </template>
+  </service>
+</service_bundle>
