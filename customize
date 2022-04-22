@@ -29,8 +29,11 @@ MUNIN_PLUGINS="
 "
 
 echo "* Use the skylime pkgsrc mirror"
-gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkgin/repositories.conf
 gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkg_install.conf
+gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkgin/repositories.conf
+gsed -n 's:\(^https\://.*\)/[a-z]\+/[A-Za-z]\+/\([0-9]\{4\}Q[0-9]\)/.*:\1/skylime-extra/\2/x86_64/:p' \
+  /opt/local/etc/pkgin/repositories.conf >> /opt/local/etc/pkgin/repositories.conf
+
 pkg_admin rebuild
 pkgin -y up
 
