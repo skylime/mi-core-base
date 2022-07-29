@@ -1,5 +1,26 @@
 # Changelog
 
+## 21.4.1
+
+### New
+
+* Add skylime-extra pkgsrc repository by default to pkgin. [Thomas Merkel]
+* Overwrite nullmailer SMF to support syslog logging. [Thomas Merkel]
+
+  Pipe nullmailer stdout/stderr to logger and syslog. Otherwise logging is
+  provided in the svc logfile without datetime information.
+
+* Provide better smartos-munin-plugin handling. [Thomas Merkel]
+
+  Support extra sub-directory for our own plugins which should not overwrite
+  existing plugins. We are sure our additional plugins are overwrite symlink
+  defaults if they exists.
+
+### Fix
+
+* Switch to fixed znapzend version with correct perl dependencies.
+  [Thomas Merkel]
+
 ## 21.4.0
 
 ### New
