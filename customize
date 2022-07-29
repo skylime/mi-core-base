@@ -29,10 +29,11 @@ MUNIN_PLUGINS="
 "
 
 echo "* Use the skylime pkgsrc mirror"
-gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkg_install.conf
-gsed -i 's:pkgsrc.joyent.com:pkgsrc.smartos.skylime.net:g' /opt/local/etc/pkgin/repositories.conf
-gsed -n 's:\(^https\://.*\)/[a-z]\+/[A-Za-z]\+/\([0-9]\{4\}Q[0-9]\)/.*:\1/skylime-extra/\2/x86_64/:p' \
-  /opt/local/etc/pkgin/repositories.conf >> /opt/local/etc/pkgin/repositories.conf
+gsed -i 's:pkgsrc.smartos.org/packages:packages.pkgsrc.pub/smartos:g' /opt/local/etc/pkg_install.conf
+gsed -i 's:pkgsrc.smartos.org/packages:packages.pkgsrc.pub/smartos:g' /opt/local/etc/pkgin/repositories.conf
+
+gsed -i 's#\(^https://[a-z.]*\)/\([a-z]*\)/\(.*\)/All#\1/skylime-extra/\3\n\1/\2/\3/All#' \
+  /opt/local/etc/pkgin/repositories.conf
 
 pkg_admin rebuild
 pkgin -y up
@@ -42,7 +43,8 @@ echo "* Create munin template file that will be used during mdata setup"
 cp /opt/local/etc/munin/munin-node.conf /opt/local/etc/munin/munin-node.conf.tpl
 
 echo "* Download and install community munin plugins (overwrite all other plugins)"
-curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGIN_VERSION}.tar.gz | gtar xz -C /opt/local/lib/munin/plugins --strip-components=1
+mkdir -p /opt/local/lib/munin/plugins/smartos
+curl -L https://github.com/drscream/smartos-munin-plugins/archive/v${MUNIN_PLUGIN_VERSION}.tar.gz | gtar xz -C /opt/local/lib/munin/plugins/smartos --strip-components=1
 
 echo "* Activate munin plugins"
 /opt/core/bin/munin-node-plugins ${MUNIN_PLUGINS}

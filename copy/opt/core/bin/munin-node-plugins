@@ -2,20 +2,42 @@
 # Thomas Merkel <tm@core.io>
 # Enable munin node plugins by commandline
 
+set -e
+
 MUNIN_PLUGIN_SRC=${MUNIN_PLUGIN_SRC-'/opt/local/lib/munin/plugins'}
 MUNIN_PLUGIN_DST=${MUNIN_PLUGIN_DST-'/opt/local/etc/munin/plugins'}
+MUNIN_PLUGIN_SUB_LOOKUP=${MUNIN_PLUGIN_SUB_LOOKUP-'smartos'}
 MUNIN_PLUGINS=${MUNIN_PLUGINS-$@}
 
-for plugin in ${MUNIN_PLUGINS[@]}; do
-	if [ ! -x ${MUNIN_PLUGIN_SRC}/${plugin} ]; then
-		plugin_src=${plugin%_*}_
-		[ ! -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ] && \
+function munin_plugins_lookup() {
+	local munin_plugin_src=${1}
+	local munin_plugin_dst=${2}
+	local munin_plugin=${3}
+
+	if [ ! -x ${munin_plugin_src}/${munin_plugin} ]; then
+		plugin_src=${munin_plugin%_*}_
+		[ ! -x ${munin_plugin_src}/${plugin_src} ] && \
 			plugin_src=${plugin_src%%_*}_
 	else
 		plugin_src=${plugin}
 	fi
-	if [[ -x ${MUNIN_PLUGIN_SRC}/${plugin_src} ]]; then
-		echo "munin-node-plugins: ${plugin}"
-		ln -sf ${MUNIN_PLUGIN_SRC}/${plugin_src} ${MUNIN_PLUGIN_DST}/${plugin}
+
+	# Symlink only if it really exists and is executable. Echo the output for
+	# better logging information.
+	if [[ -x ${munin_plugin_src}/${plugin_src} ]]; then
+		echo "munin-node-plugins: ${munin_plugin}"
+		echo "${munin_plugin_src}/${plugin_src} -> ${munin_plugin_dst}/${plugin}"
+		ln -sf ${munin_plugin_src}/${plugin_src} ${munin_plugin_dst}/${plugin}
+		return 0
+	else
+		return 1
+	fi
+}
+
+for plugin in ${MUNIN_PLUGINS[@]}; do
+	# Default lookup should be $MUNIN_PLUGIN_SUB_LOOKUP
+	if ! munin_plugins_lookup ${MUNIN_PLUGIN_SRC}/${MUNIN_PLUGIN_SUB_LOOKUP} ${MUNIN_PLUGIN_DST} ${plugin}; then
+		# Going into default lookup
+		munin_plugins_lookup ${MUNIN_PLUGIN_SRC} ${MUNIN_PLUGIN_DST} ${plugin}
 	fi
 done
