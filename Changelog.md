@@ -1,5 +1,19 @@
 # Changelog
 
+## 22.4.0
+
+### New
+
+* Switch to pkgsrc 2022Q4 and using Python version 3.10. [Thomas Merkel]
+* Enable delegate dataset (ZFS) for /home. [Thomas Merkel]
+
+  Enable managed ZFS (delegate dataset) for useradd and user homes. Modify
+  existing users (admin) to use /home/admin dataset.
+
+### Fix
+
+* Fix pkgin gpg trust database. [Thomas Merkel]
+
 ## 21.4.1
 
 ### New
