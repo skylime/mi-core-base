@@ -27,6 +27,6 @@ unzip
 # grep required to work with sm- commands
 grep
 # backup
-http://packages.pkgsrc.pub/skylime-extra/SmartOS/2021Q4/x86_64/znapzend-0.21.1nb20220801.tgz
+http://packages.pkgsrc.pub/skylime-extra/SmartOS/2022Q4/x86_64/znapzend-0.21.1nb20220801.tgz
 # letsencrypt
-py39-certbot
+py310-certbot
