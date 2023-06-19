@@ -52,8 +52,8 @@ echo "* Activate munin plugins"
 echo "* Remove unused logfiles"
 rm -f /var/log/courier.log
 
-echo "* Remove home/admin because of delegate dataset usage"
-rm -rf /home/admin
+echo "* Cleanup home/admin because of delegate dataset usage"
+rm -rf /home/admin/.[^.]*
 
 echo "* Cleaning up."
 rm -rf /root/*

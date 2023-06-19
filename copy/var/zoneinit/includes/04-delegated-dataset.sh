@@ -15,25 +15,18 @@ function install_skel() {
 }
 
 if zfs list ${DDS} 1>/dev/null 2>&1; then
-	echo "MANAGE_ZFS=YES" >> /etc/default/useradd
-
-	if ! zfs list -H -o mountpoint ${DDS}/home/admin 2>/dev/null | grep "/home/admin"; then
-		if [ -d "/home/admin" ]; then
-			rm -r /home/admin
-		fi
-
+	if ! zfs list ${DDS}/home/admin 1>/dev/null 2>&1; then
+		# Create delegate dataset for home/admin
 		zfs create -p ${DDS}/home/admin
-	else
-		zfs set mountpoint=none ${DDS}/home/admin
-	fi
 
-	if ! zfs get mountpoint -o source ${DDS}/home 2>/dev/null | grep "local"; then
-		zfs set mountpoint=/home ${DDS}/home
-	fi
+		# Remove the folder as well because of delegate dataset
+		rm -r /home/admin
 
-	zfs set mountpoint=/home/admin ${DDS}/home/admin
-	install_skel
+		# Set mount point and fix permissions
+		zfs set mountpoint=/home/admin ${DDS}/home/admin
+
+		install_skel
+	fi
 else
-	mkdir -p /home/admin
 	install_skel
 fi
