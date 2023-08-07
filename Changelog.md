@@ -1,5 +1,18 @@
 # Changelog
 
+## 22.4.1
+
+### Fix
+
+* Revert "Enable delegate dataset (ZFS) for /home" [Thomas Merkel]
+
+  Because of bigger issues with re-provision of images and especially with
+  images which depends on core-base we remove this feature. We should and
+  will stay with the useradd-zfs shell script which handle delegate
+  datasets for the users but not for /home directly.
+
+  This reverts commit 7708a8029a860afb2c84ae90fb04dc23a06bd5d9.
+
 ## 22.4.0
 
 ### New
