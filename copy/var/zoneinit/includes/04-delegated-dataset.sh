@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-UUID=$(mdata-get sdc:uuid)
-DDS=zones/${UUID}/data
 
 function install_skel() {
 	# If first creation is a success copy all data from skel
@@ -14,7 +12,7 @@ function install_skel() {
 	chown -R admin:staff /home/admin
 }
 
-if zfs list ${DDS} 1>/dev/null 2>&1; then
+if DDS=$(/opt/core/bin/dds); then
 	if ! zfs list ${DDS}/home/admin 1>/dev/null 2>&1; then
 		# Create delegate dataset for home/admin
 		zfs create -p ${DDS}/home/admin
