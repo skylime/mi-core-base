@@ -1,5 +1,16 @@
 # Changelog
 
+## 23.4.0
+
+### New
+
+- Switch to pkgsrc 2023Q4 and using Python version 3.11. [Thomas Merkel]
+- Provide new dds (delegate dataset) list script. [Thomas Merkel]
+
+  A new script is available which looks for datasets which exists on a
+  system and will be used during zoneinit. It provides a easy support for
+  zones/ and data/ datasets.
+
 ## 22.4.1
 
 ### Fix
