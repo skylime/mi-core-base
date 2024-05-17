@@ -33,7 +33,6 @@ while getopts ":c:m:t:" opt; do
 done
 
 # Setup account email address to mail_adminaddr if exists
-EMAIL='--register-unsafely-without-email'
 if [[ ${EMAIL} =~ ".*@.*" ]]; then
     EMAIL="--email ${EMAIL}"
 fi
@@ -62,7 +61,7 @@ elif LE_ACCOUNT_SERVER=$(mdata-get le_account_server 2> /dev/null) \
     && LE_ACCOUNT_PRIVATE_KEY=$(mdata-get le_account_private_key) \
     && LE_ACCOUNT_REGR=$(mdata-get le_account_regr 2> /dev/null); then
 
-    # Create folder and files required to an account
+    # Create folder and files required to create an account
     LE_ACCOUNT_DIR="${LE_DIR}/${LE_ACCOUNT_SERVER}/directory/${LE_ACCOUNT_HASH}"
     (
         umask 077
