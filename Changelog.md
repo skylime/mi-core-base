@@ -1,5 +1,24 @@
 # Changelog
 
+## 23.4.1
+
+### New
+
+* Support LE accounts in mdata variable. [Thomas Merkel]
+
+  Store LE accounts in metadata for better account restore for existing
+  machines. Especially on re-provision the account could be restored to
+  generate a new valid certificate by the same account.
+
+### Fix
+
+* Fix EMAIL handling, wrong variable overwrite parameter. [Thomas Merkel]
+* Fix wrong quoting of variables for LE certbot exec. [Thomas Merkel]
+
+### Other
+
+* Use ShellCheck to fix issues which are auto-detected. [Thomas Merkel]
+
 ## 23.4.0
 
 ### New
