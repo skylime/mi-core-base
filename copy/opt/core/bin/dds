@@ -6,21 +6,21 @@ allowed_datasets="zones data"
 
 # Check for datasets and try to prefer the best existing
 function dds() {
-  local uuid=$(mdata-get sdc:uuid 2>/dev/null)
-  local datasets=$(zfs list -d 0 -pH -o name 2>/dev/null)
+    local uuid=$(mdata-get sdc:uuid 2> /dev/null)
+    local datasets=$(zfs list -d 0 -pH -o name 2> /dev/null)
 
-  for allowed in ${allowed_datasets}; do
-    for dataset in ${datasets}; do
-      if [[ "${allowed}" == "${dataset}" ]]; then
-        if zfs list ${dataset}/${uuid}/data >/dev/null 2>&1; then
-          echo "${dataset}/${uuid}/data"
-          return 0
-        fi
-      fi
+    for allowed in ${allowed_datasets}; do
+        for dataset in ${datasets}; do
+            if [[ "${allowed}" == "${dataset}" ]]; then
+                if zfs list "${dataset}/${uuid}/data" > /dev/null 2>&1; then
+                    echo "${dataset}/${uuid}/data"
+                    return 0
+                fi
+            fi
+        done
     done
-  done
 
-  return 1
+    return 1
 }
 
 dds
