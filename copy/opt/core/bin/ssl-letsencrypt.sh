@@ -33,7 +33,7 @@ while getopts ":c:m:t:" opt; do
 done
 
 # Setup account email address to mail_adminaddr if exists
-if [[ ${EMAIL} =~ ".*@.*" ]]; then
+if [[ ${EMAIL} =~ .*@.* ]]; then
     EMAIL="--email ${EMAIL}"
 fi
 
@@ -54,7 +54,7 @@ esac
 LE_DIR='/opt/local/etc/letsencrypt/accounts/'
 
 if cd "${LE_DIR}"*/*/* > /dev/null 2>&1; then
-    continue
+    true
 elif LE_ACCOUNT_SERVER=$(mdata-get le_account_server 2> /dev/null) \
     && LE_ACCOUNT_HASH=$(mdata-get le_account_hash 2> /dev/null) \
     && LE_ACCOUNT_META=$(mdata-get le_account_meta 2> /dev/null) \
@@ -73,7 +73,7 @@ elif LE_ACCOUNT_SERVER=$(mdata-get le_account_server 2> /dev/null) \
     )
     echo "${LE_ACCOUNT_META}" > "${LE_ACCOUNT_DIR}/meta.json"
     echo "${LE_ACCOUNT_REGR}" > "${LE_ACCOUNT_DIR}/regr.json"
-elif certbot register --agree-tos "${EMAIL}" 2> /dev/null; then
+elif certbot register --agree-tos ${EMAIL} 2> /dev/null; then
 
     # Store LE account meta data information
     le_account=$(cd "${LE_DIR}" && echo */*/*)
@@ -86,7 +86,7 @@ fi
 
 # Run initial certbot command to create account and certificate
 if ! certbot certonly \
-    "${BOT_ARGS}" \
+    ${BOT_ARGS} \
     --quiet \
     --text \
     --non-interactive \
