@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-svcadm enable svc:/network/ssh-hostkey-mdata-setup:default
+if mdata-get svc_sshd_enable > /dev/null 2>&1; then
+    svcadm enable svc:/network/ssh-hostkey-mdata-setup:default
+fi
