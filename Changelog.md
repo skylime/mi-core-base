@@ -1,5 +1,25 @@
 # Changelog
 
+## 24.4.0
+
+### New
+
+* Switch to 2024Q4 release. [Thomas Merkel]
+
+  * Switch to pkgsrc release 2024Q4 LTS
+  * Use Python 3.12 by default
+
+* Add new munin plugins 0.19. [Thomas Merkel]
+* Disable SSH by default. [Thomas Merkel]
+
+  SSH is not required in most zones. For that reason provide a new mdata
+  variable `svc_sshd_enable` to re-enable the service again.
+
+### Fix
+
+* Fix disable ssh service dependency handling. [Thomas Merkel]
+* Add correct version number. [Thomas Merkel]
+
 ## 23.4.1
 
 ### New
