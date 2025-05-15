@@ -1,5 +1,11 @@
 # Changelog
 
+## 24.4.1
+
+### Other
+
+* Build fix to avoid MacOS dot files. [Thomas Merkel]
+
 ## 24.4.0
 
 ### New
