@@ -1,11 +1,11 @@
 {
-  "name": "core-base",
-  "version": "24.4.0",
+  "name": "core-base-trunk",
+  "version": "20260110",
   "description": "Base core.io image",
   "organization": "SkyLime",
   "brand": "Instance",
   "homepage": "https://github.com/skylime/mi-core-base",
-  "base": "41bd4100-eb86-409a-85b0-e649aadf6f62",
+  "base": "1a45657e-37c9-4b50-b070-c55d90054984",
   "customer_metadata": {
     "admin_authorized_keys": {
       "type": "text",
