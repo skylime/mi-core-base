@@ -1,5 +1,18 @@
 # Changelog
 
+## 25.4.0
+
+### New
+
+* Switch to 2025Q4 release. [Thomas Merkel]
+
+  * Switch to pkgsrc release 2025Q4 LTS
+  * Use Python 3.13 by default
+
+### Fix
+
+* Build fix to avoid MacOS dot files. [Thomas Merkel]
+
 ## 24.4.1
 
 ### Other
