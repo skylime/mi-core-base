@@ -8,10 +8,11 @@ SSH_HOSTS='/var/ssh'
 
 # Do nothing if not under SMF
 if [[ ! "${SMF_METHOD}" == "start" ]]; then
-    exit ${SMF_EXIT_OK}
+    exit "${SMF_EXIT_OK}"
 fi
 
 # Update mdata information from SSH host keys
+umask 377
 for key in dsa_key dsa_key.pub rsa_key rsa_key.pub ecdsa_key ecdsa_key.pub ed25519_key ed25519_key.pub; do
     # If mdata is set we update the host keys, else we will get the
     # host keys from the filesystem and set the mdata information
@@ -26,4 +27,4 @@ done
 # Disable service after run once
 #svcadm disable svc:/network/ssh-hostkey-mdata-setup
 
-exit ${SMF_EXIT_OK}
+exit "${SMF_EXIT_OK}"
