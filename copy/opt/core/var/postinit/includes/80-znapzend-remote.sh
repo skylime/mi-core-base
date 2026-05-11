@@ -3,7 +3,7 @@
 # Modify all existing znapzendzetups.
 
 # Only works if ssh key is present. Otherwise no backup is possible.
-[ ! -f /root/.ssh/id_rsa ] && exit 0
+ls ~/.ssh/id_* &>/dev/null || { echo "No SSH keys found"; exit 0; }
 
 # Default znapzend zetup plan if not present via mdata
 ZNAPZEND_DST_PLAN_DEFAULT="7days=>8hours,30days=>1day,1year=>1week,10years=>1month"

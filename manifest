@@ -1,8 +1,0 @@
-name="core-base"
-organization="SkyLime"
-brand="Instance"
-version="25.4.0"
-description="Base core.io image"
-homepage="https://github.com/skylime/mi-core-base"
-users="root admin"
-base="7a3a8442-d9e9-4183-95be-602a300695ed"
