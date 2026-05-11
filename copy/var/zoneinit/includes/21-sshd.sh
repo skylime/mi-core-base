@@ -12,4 +12,6 @@ svcadm refresh svc:/network/ssh
 
 if ! mdata-get svc_sshd_enable > /dev/null 2>&1; then
   svcadm disable svc:/network/ssh
+else
+  svcadm enable -r svc:/network/ssh
 fi
