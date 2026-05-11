@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
 # Configure remote backup server if available and present via mdata variable.
-# Modify all existing znapzendzetups. If parts are not available try to provide
-# information via /etc/motd.
+# Modify all existing znapzendzetups.
+
+# Only works if ssh key is present. Otherwise no backup is possible.
+[ ! -f /root/.ssh/id_rsa ] && exit 0
 
 # Default znapzend zetup plan if not present via mdata
-ZNAPZEND_DST_PLAN=$(mdata-get znapzend_dst_plan 2>/dev/null ||\
-	echo "7days=>8hours,30days=>1day,1year=>1week,10years=>1month")
+ZNAPZEND_DST_PLAN_DEFAULT="7days=>8hours,30days=>1day,1year=>1week,10years=>1month"
 
-# Verify mdata exists
-if ZNAPZEND_DST=$(mdata-get znapzend_dst 2>/dev/null); then
+# Restrucutre data to bash arrays for better handling in loops
+mapfile -t ZNAPZEND_DST_PLANS < <(mdata-get znapzend_dst_plan 2>/dev/null | tr ' ' '\n' | grep -v '^$')
+mapfile -t ZNAPZEND_DSTS < <(mdata-get znapzend_dst 2>/dev/null | tr ' ' '\n' | grep -v '^$')
+
+# Only do any zetup if anything is in the DSTS array.
+for (( i=0; i<${#ZNAPZEND_DSTS[@]}; i++ )); do
+	ZNAPZEND_DST="${ZNAPZEND_DSTS[$i]}"
+	ZNAPZEND_DST_PLAN=${ZNAPZEND_DST_PLANS[$i]:-${ZNAPZEND_DST_PLAN_DEFAULT}}
+
 	# Verify requirements (root id_rsa, known_hosts)
-	[ ! -f /root/.ssh/id_rsa ] && exit 0
 	ZNAPZEND_DST_HOST=$(echo "${ZNAPZEND_DST}" | sed -n 's/\(.*@\)\?\(.*\):.*/\2/p')
 	if ! grep -q "${ZNAPZEND_DST_HOST}" /root/.ssh/known_hosts &>/dev/null; then
 		(return 0 2>/dev/null) && exit 0
@@ -39,4 +46,4 @@ if ZNAPZEND_DST=$(mdata-get znapzend_dst 2>/dev/null); then
 		fi
 	done
 	pkill -HUP znapzend
-fi
+done
