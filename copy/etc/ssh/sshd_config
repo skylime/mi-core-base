@@ -14,7 +14,6 @@ AddressFamily any
 Protocol 2
 
 HostKey /var/ssh/ssh_host_rsa_key
-HostKey /var/ssh/ssh_host_dsa_key
 HostKey /var/ssh/ssh_host_ecdsa_key
 HostKey /var/ssh/ssh_host_ed25519_key
 
@@ -71,7 +70,6 @@ PrintMotd no
 
 #TCPKeepAlive yes
 #UseLogin no
-UsePrivilegeSeparation sandbox # Default for new installations.
 #PermitUserEnvironment no
 #Compression delayed
 #ClientAliveInterval 0
