@@ -1,5 +1,25 @@
 # Changelog
 
+## 25.4.1
+
+### Bug Fixes
+
+- Set umask for ssh host key files
+- Enable ssh service if svc_sshd_enable is configured
+- Remove dsa host key support and remove UsePrivilegeSeparation
+
+### Features
+
+- Support multiple znapzend_dst and _plan options
+  It should be possible to support multiple znapzend destinations via
+  space or newline seperated list. The same goes for the plan, but still
+  fallback if no plan is defined.
+
+- Support different ssh key types for the root user
+  RSA is not the future so we should also support ed25519 ssh keys for root
+  users and store them correctly in mdata variables for now.
+
+
 ## 25.4.0
 
 ### New
