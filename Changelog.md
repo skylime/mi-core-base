@@ -7,6 +7,8 @@
 - Set umask for ssh host key files
 - Enable ssh service if svc_sshd_enable is configured
 - Remove dsa host key support and remove UsePrivilegeSeparation
+- No comment for ssh private keys
+- Restart / enable znapzend only if plan is configured
 
 ### Features
 
