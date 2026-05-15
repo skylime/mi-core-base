@@ -6,8 +6,6 @@ key_types="rsa ed25519"
 for key_type in $key_types; do
 	if mdata-get "root_ssh_${key_type}" 1>/dev/null 2>&1; then
 		mkdir -p /root/.ssh
-		echo "# This file is managed by mdata-get root_ssh_${key_type}" \
-			> "/root/.ssh/id_${key_type}"
 		mdata-get "root_ssh_${key_type}" >> "/root/.ssh/id_${key_type}"
 
 		# Mostly not required but we only support it with privat key
