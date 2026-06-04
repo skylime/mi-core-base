@@ -18,7 +18,7 @@ for key in dsa_key dsa_key.pub rsa_key rsa_key.pub ecdsa_key ecdsa_key.pub ed255
     # host keys from the filesystem and set the mdata information
     if mdata-get ssh_host_${key} 2> /dev/null; then
         mdata-get ssh_host_${key} > ${SSH_HOSTS}/ssh_host_${key}
-    else
+    elif [[ -f ${SSH_HOSTS}/ssh_host_${key} ]]; then
         cat ${SSH_HOSTS}/ssh_host_${key} \
             | mdata-put ssh_host_${key}
     fi
