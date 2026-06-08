@@ -1,5 +1,17 @@
 # Changelog
 
+## 25.4.2
+
+### Bug Fixes
+
+- Only add ssh host keys to mdata if they exists [Thomas Merkel]
+
+### Features
+
+- Provide new munin plugins version [Thomas Merkel]
+  Especially with fixes and features for the email infrastructure and
+  rspamd.
+
 ## 25.4.1
 
 ### Bug Fixes
