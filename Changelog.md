@@ -1,5 +1,15 @@
 # Changelog
 
+## 25.4.3
+
+### Bug Fixes
+
+- CVE-2026-111497: Out-of-Bounds Write in Google Brotli Decoder [Thomas Merkel]
+
+### Features
+
+- Add staging support for LE [Thomas Merkel]
+
 ## 25.4.2
 
 ### Bug Fixes
