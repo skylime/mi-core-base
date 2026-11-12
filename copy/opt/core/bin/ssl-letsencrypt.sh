@@ -8,6 +8,7 @@ set -e
 # Defaults
 CN=$(hostname)
 EMAIL=$(mdata-get mail_adminaddr 2> /dev/null || echo '--register-unsafely-without-email')
+STAGING=$(mdata-get le_staging >/dev/null 2>&1 && echo '--staging' || echo '')
 
 # Ignore python warnings by default in this script
 export PYTHONWARNINGS="ignore"
@@ -73,7 +74,7 @@ elif LE_ACCOUNT_SERVER=$(mdata-get le_account_server 2> /dev/null) \
     )
     echo "${LE_ACCOUNT_META}" > "${LE_ACCOUNT_DIR}/meta.json"
     echo "${LE_ACCOUNT_REGR}" > "${LE_ACCOUNT_DIR}/regr.json"
-elif certbot register --agree-tos ${EMAIL} 2> /dev/null; then
+elif certbot register --agree-tos ${STAGING} ${EMAIL} 2> /dev/null; then
 
     # Store LE account meta data information
     le_account=$(cd "${LE_DIR}" && echo */*/*)
