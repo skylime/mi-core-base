@@ -1,5 +1,20 @@
 # Changelog
 
+## 25.4.4
+
+### Bug Fixes
+
+- Add skylime-extra repository to pkg_install.conf for pkg_add [Thomas Merkel]
+  On image build pkg_add is used to install all required packages. For
+  that reason it should also use our skylime-extra repository like it does
+  for pkgin already.
+
+### Features
+
+- Provide script for pkg-vuln-ignore [Thomas Merkel]
+  Support additional file (via URL) with a list of ignored CVEs to
+  hopefully provide a better pkg_admin audit handling.
+
 ## 25.4.3
 
 ### Bug Fixes
