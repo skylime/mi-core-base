@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Manage IGNORE_URL entries in pkg_install.conf from mdata pkg_vuln_ignore_url
+
+set -o errexit
+set -o pipefail
+
+PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+
+CONF=${PKG_INSTALL_CONF:-/opt/local/etc/pkg_install.conf}
+ETAG=${PKG_VULN_IGNORE_ETAG:-/var/tmp/pkg-vuln-ignore.etag}
+BEGIN='# BEGIN pkg_vuln_ignore_url'
+END='# END pkg_vuln_ignore_url'
+
+URL=$(mdata-get pkg_vuln_ignore_url 2>/dev/null) || exit 0
+
+LIST=$(curl -fsSL --max-time 60 --etag-compare "${ETAG}" --etag-save "${ETAG}.new" "${URL}")
+[ -z "${LIST}" ] && exit 0
+
+TMP=$(mktemp "${CONF}.XXXXXX")
+trap 'rm -f "${TMP}"' EXIT
+
+{
+	nawk -v b="${BEGIN}" -v e="${END}" '$0 == b { skip = 1 } !skip { print } $0 == e { skip = 0 }' "${CONF}"
+	echo "${BEGIN}"
+	echo "${LIST}" | nawk '/^#/ || NF == 0 { print; next } { print "IGNORE_URL=" $1 }'
+	echo "${END}"
+} > "${TMP}"
+
+chmod 644 "${TMP}"
+mv "${TMP}" "${CONF}"
+mv "${ETAG}.new" "${ETAG}"

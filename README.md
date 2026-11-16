@@ -59,6 +59,12 @@ Add existing users to a sysadmin group to allow sudo without any password.
 
 - `sudo_sysadmin_members`: space seperated list of users
 
+### pkgsrc vulnerability ignore list
+
+Manage `IGNORE_URL` entries in `/opt/local/etc/pkg_install.conf` used by `pkg_admin audit`.
+
+- `pkg_vuln_ignore_url`: URL of the vulnerability ignore list
+
 ### backup / znapzend
 
 Configure remote backup destination and plan for znapzend.
